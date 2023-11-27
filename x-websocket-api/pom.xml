@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.x</groupId>
+        <artifactId>x-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../x-parent/pom.xml</relativePath>
+    </parent>
+
+    <groupId>com.x.websocket</groupId>
+    <artifactId>x-websocket-api</artifactId>
+    <name>x-websocket-api</name>
+    <description>x websocket api</description>
+
+    <dependencies>
+        <!-- feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- common -->
+        <dependency>
+            <groupId>com.x.common</groupId>
+            <artifactId>x-common</artifactId>
+            <optional>true</optional>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+</project>

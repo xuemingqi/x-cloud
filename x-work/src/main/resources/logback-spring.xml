@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 日志根目录 -->
+    <property name="LOG_HOME" value="./logs"/>
+    <property name="LOG_FILE_PREFIX" value="work"/>
+
+    <!-- 通用配置 -->
+    <include resource="logback-base.xml"/>
+
+    <!-- FrameworkServlet 日志-->
+    <logger name="org.springframework" level="WARN"/>
+
+    <!-- mybatis 日志-->
+    <logger name="org.apache.ibatis" level="INFO"/>
+    <logger name="java.sql" level="INFO"/>
+
+    <!--  project 日志 -->
+    <logger name="com.x.work" level="INFO"/>
+
+    <!-- 控制台输出日志级别 -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

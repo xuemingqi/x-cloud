@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.x</groupId>
+        <artifactId>x-module</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../x-module/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>x-contact</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>x-contact</name>
+    <description>x contact</description>
+
+    <dependencies>
+        <!-- web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- server -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- common -->
+        <dependency>
+            <groupId>com.x.common</groupId>
+            <artifactId>x-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- x contact api -->
+        <dependency>
+            <groupId>com.x.content</groupId>
+            <artifactId>x-contact-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.x</groupId>
+        <artifactId>x-module</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../x-module/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>x-work</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>x-work</name>
+    <description>x work</description>
+
+    <properties>
+        <openai.version>0.10.0</openai.version>
+    </properties>
+
+    <dependencies>
+        <!-- web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- server -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- common -->
+        <dependency>
+            <groupId>com.x.common</groupId>
+            <artifactId>x-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- x work api -->
+        <dependency>
+            <groupId>com.x.work</groupId>
+            <artifactId>x-work-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- websocket api -->
+        <dependency>
+            <groupId>com.x.websocket</groupId>
+            <artifactId>x-websocket-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- redisson -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- rocketMq -->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- chatGPT -->
+        <dependency>
+            <groupId>com.theokanning.openai-gpt3-java</groupId>
+            <artifactId>client</artifactId>
+            <version>${openai.version}</version>
+        </dependency>
+    </dependencies>
+</project>

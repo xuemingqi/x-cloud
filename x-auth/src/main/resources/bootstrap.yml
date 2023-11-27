@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: x-auth
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        refresh-enabled: true
+        namespace: 2ef6f7e9-aeaf-4276-9ba3-aefe4372666c
+        file-extension: yaml
