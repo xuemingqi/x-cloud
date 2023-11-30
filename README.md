@@ -1,9 +1,9 @@
 # x-cloud
 
-该项目是一个基于 Spring Cloud Alibaba 技术栈搭建的微服务架构，用于演示如何构建一个分布式系统。
+#### 介绍
+The template for the Spring Cloud Alibaba project
 
-## 项目结构
-
+#### 软件架构
 ```
 ├── x-parent             -- 父依赖模块
 │   ├── x-auth-api       -- 权限认证feign api
@@ -19,14 +19,39 @@
 │   │   ├── x-websocket  -- websocket服务
 │   │   ├── x-work       -- 主要业务服务
 ```
-# 技术栈
+
+### 技术栈
 Spring Boot 2.6.13  
 Spring Cloud 2021.0.5  
 Spring Cloud Alibaba 2021.0.5.0  
 Nacos 2.2.0
-
 JWT  
 Redisson  
 Mybatis-plus  
 RocketMq  
 Websocket
+
+
+#### 安装教程
+
+1.  启动nacos
+2.  启动基础服务，mysql、redis、rocketmq
+3.  启动任意服务
+
+#### 使用说明
+
+1.  swagger通过gateway集成,url->https://gateway-host/doc.html
+
+#### 参与贡献
+
+1.  Fork 本仓库
+2.  新建 Feat_xxx 分支
+3.  提交代码
+4.  新建 Pull Request
+
+
+#### 特技
+
+1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
+2.  个人博客 [blog.yonyeyy.com](https://blog.yonyeyy.com)
+3.  个人github仓库 [https://github.com/xuemingqi](https://github.com/xuemingqi)
