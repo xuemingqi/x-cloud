@@ -21,15 +21,15 @@ The template for the Spring Cloud Alibaba project
 ```
 
 ### 技术栈
-Spring Boot 2.6.13  
-Spring Cloud 2021.0.5  
-Spring Cloud Alibaba 2021.0.5.0  
-Nacos 2.2.0
-JWT  
-Redisson  
-Mybatis-plus  
-RocketMq  
-Websocket
+1. Spring Boot 2.6.13  
+2. Spring Cloud 2021.0.5  
+3. Spring Cloud Alibaba 2021.0.5.0  
+4. Nacos 2.2.0
+5. JWT  
+6. Redisson  
+7. Mybatis-plus  
+8. RocketMq  
+9. Websocket
 
 
 #### 安装教程
