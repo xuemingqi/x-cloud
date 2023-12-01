@@ -3,7 +3,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%boldMagenta(%23.23thread)] %green(%-5level) %cyan(%-60.60logger) %boldBlue(%-5line) %boldYellow(traceId):[%-10.10X{traceId:-main}] %boldYellow(ip):[%-15.15X{ip:-127.0.0.1}] %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%boldMagenta(%21.21thread)] %green(%-5level) %cyan(%-45.45logger) %boldBlue(%-5line) %boldYellow(traceId):[%-10.10X{traceId:-main}] %boldYellow(ip):[%-15.15X{ip:-127.0.0.1}] %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
@@ -20,7 +20,7 @@
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%23.23thread] %-5level %-60.60logger %-5line traceId:[%-10.10X{traceId:-main}] ip:[%-15.15X{ip:-127.0.0.1}] %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%21.21thread] %-5level %-45.45logger %-5line traceId:[%-10.10X{traceId:-main}] ip:[%-15.15X{ip:-127.0.0.1}] %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
