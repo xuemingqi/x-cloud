@@ -31,8 +31,9 @@ public class RedisUtil {
      * @param key 键
      * @return 值
      */
-    public Object get(String key) {
-        return getRBucket(key).get();
+    public <T> T get(String key) {
+        RBucket<T> rBucket = getRBucket(key);
+        return rBucket.get();
     }
 
 
@@ -158,8 +159,9 @@ public class RedisUtil {
      * @param key     键 不能为null
      * @param hashKey 项 不能为null
      */
-    public Object hGet(String key, Object hashKey) {
-        return getRMapCache(key).get(hashKey);
+    public <K, V> V hGet(String key, K hashKey) {
+        RMapCache<K, V> rMapCache = getRMapCache(key);
+        return rMapCache.get(hashKey);
     }
 
 
@@ -194,8 +196,9 @@ public class RedisUtil {
      * @param key 键
      * @return 对应的多个键值
      */
-    public Map<Object, Object> hMGet(String key) {
-        return getRMapCache(key).readAllMap();
+    public <K, V> Map<K, V> hMGet(String key) {
+        RMapCache<K, V> rMapCache = getRMapCache(key);
+        return rMapCache.readAllMap();
     }
 
 
@@ -217,8 +220,9 @@ public class RedisUtil {
      * @param map        对应多个键值
      * @param timeoutSec 时间(秒)
      */
-    public void hMSet(String key, Map<String, Object> map, long timeoutSec) {
-        getRMapCache(key).putAll(map, timeoutSec, TimeUnit.SECONDS);
+    public <K, V> void hMSet(String key, Map<? extends K, ? extends V> map, long timeoutSec) {
+        RMapCache<K, V> rMapCache = getRMapCache(key);
+        rMapCache.putAll(map, timeoutSec, TimeUnit.SECONDS);
     }
 
 
@@ -274,8 +278,9 @@ public class RedisUtil {
      *
      * @param key 键
      */
-    public Set<Object> sGet(String key) {
-        return getRSet(key).readAll();
+    public <V> Set<V> sGet(String key) {
+        RSet<V> rSet = getRSet(key);
+        return rSet.readAll();
     }
 
 
@@ -284,8 +289,9 @@ public class RedisUtil {
      *
      * @param key 键
      */
-    public Object sPop(String key) {
-        return getRSet(key).removeRandom();
+    public <V> V sPop(String key) {
+        RSet<V> rSet = getRSet(key);
+        return rSet.removeRandom();
     }
 
 
@@ -295,8 +301,9 @@ public class RedisUtil {
      * @param key   键
      * @param count 数量
      */
-    public Set<Object> sPop(String key, int count) {
-        return getRSet(key).removeRandom(count);
+    public <V> Set<V> sPop(String key, int count) {
+        RSet<V> rSet = getRSet(key);
+        return rSet.removeRandom(count);
     }
 
 
@@ -305,8 +312,9 @@ public class RedisUtil {
      *
      * @param key 键
      */
-    public Object sRandom(String key) {
-        return getRSet(key).random();
+    public <V> V sRandom(String key) {
+        RSet<V> rSet = getRSet(key);
+        return rSet.random();
     }
 
 
@@ -316,8 +324,9 @@ public class RedisUtil {
      * @param key   键
      * @param count 数量
      */
-    public Set<Object> sRandom(String key, int count) {
-        return getRSet(key).random(count);
+    public <V> Set<V> sRandom(String key, int count) {
+        RSet<V> rSet = getRSet(key);
+        return rSet.random(count);
     }
 
 
@@ -328,8 +337,9 @@ public class RedisUtil {
      * @param values 值 可以是多个
      * @return 成功个数
      */
-    public boolean sAdd(String key, Object values) {
-        return getRSet(key).add(values);
+    public <E> boolean sAdd(String key, E values) {
+        RSet<E> rSet = getRSet(key);
+        return rSet.add(values);
     }
 
 
@@ -341,8 +351,9 @@ public class RedisUtil {
      * @param values     值 可以是多个
      * @return 成功个数
      */
-    public boolean sAddExpire(String key, long timeoutSec, Object values) {
-        getRSet(key).add(values);
+    public <E> boolean sAddExpire(String key, long timeoutSec, E values) {
+        RSet<E> rSet = getRSet(key);
+        rSet.add(values);
         return getRSet(key).expire(timeoutSec, TimeUnit.SECONDS);
     }
 
@@ -389,8 +400,9 @@ public class RedisUtil {
      * @param start 开始
      * @param end   结束 0 到 -1 代表所有值
      */
-    public List<Object> lRange(String key, int start, int end) {
-        return getRList(key).range(start, end);
+    public <T> List<T> lRange(String key, int start, int end) {
+        RList<T> rList = getRList(key);
+        return rList.range(start, end);
     }
 
 
@@ -400,8 +412,9 @@ public class RedisUtil {
      * @param key   键
      * @param index 索引 index>=0时， 0 表头，1 第二个元素，依次类推；index<0时，-1，表尾，-2倒数第二个元素，依次类推
      */
-    public Object lIndex(String key, int index) {
-        return getRList(key).get(index);
+    public <T> T lIndex(String key, int index) {
+        RList<T> rList = getRList(key);
+        return rList.get(index);
     }
 
 
@@ -412,8 +425,9 @@ public class RedisUtil {
      * @param index 索引 index>=0时， 0 表头，1 第二个元素，依次类推；index<0时，-1，表尾，-2倒数第二个元素，依次类推
      * @param value 值
      */
-    public void lSet(String key, int index, Object value) {
-        getRList(key).add(index, value);
+    public <T> void lSet(String key, int index, T value) {
+        RList<T> rList = getRList(key);
+        rList.add(index, value);
     }
 
 
@@ -424,9 +438,10 @@ public class RedisUtil {
      * @param index 索引 index>=0时， 0 表头，1 第二个元素，依次类推；index<0时，-1，表尾，-2倒数第二个元素，依次类推
      * @param value 值
      */
-    public void lSet(String key, int index, Object value, long timeoutSec) {
-        getRList(key).add(index, value);
-        getRList(key).expire(timeoutSec, TimeUnit.SECONDS);
+    public <T> void lSet(String key, int index, T value, long timeoutSec) {
+        RList<T> rList = getRList(key);
+        rList.add(index, value);
+        rList.expire(timeoutSec, TimeUnit.SECONDS);
     }
 
 
@@ -442,8 +457,9 @@ public class RedisUtil {
     }
 
 
-    public Object lPopLeft(String key) {
-        return getRRDeque(key).removeFirst();
+    public <T> T lPopLeft(String key) {
+        RDeque<T> rDeque = getRRDeque(key);
+        return rDeque.removeFirst();
     }
 
 
@@ -453,14 +469,16 @@ public class RedisUtil {
      * @param key   键
      * @param value 值
      */
-    public boolean lPushLeft(String key, Object value) {
-        return getRRDeque(key).add(value);
+    public <T> boolean lPushLeft(String key, T value) {
+        RDeque<T> rDeque = getRRDeque(key);
+        return rDeque.add(value);
     }
 
 
-    public void lPushLeft(String key, Object value, long timeoutSec) {
-        getRRDeque(key).addFirst(value);
-        getRRDeque(key).expire(timeoutSec, TimeUnit.SECONDS);
+    public <T> void lPushLeft(String key, T value, long timeoutSec) {
+        RDeque<T> rDeque = getRRDeque(key);
+        rDeque.addFirst(value);
+        rDeque.expire(timeoutSec, TimeUnit.SECONDS);
     }
 
 
@@ -470,13 +488,15 @@ public class RedisUtil {
      * @param key    键
      * @param values 值
      */
-    public boolean lPushLeftAll(String key, List<Object> values) {
-        return getRRDeque(key).addAll(values);
+    public <T> boolean lPushLeftAll(String key, List<T> values) {
+        RDeque<T> rDeque = getRRDeque(key);
+        return rDeque.addAll(values);
     }
 
 
-    public Object lPopRight(String key) {
-        return getRRDeque(key).removeLast();
+    public <T> T lPopRight(String key) {
+        RDeque<T> rDeque = getRRDeque(key);
+        return rDeque.removeLast();
     }
 
 
@@ -486,8 +506,9 @@ public class RedisUtil {
      * @param key   键
      * @param value 值
      */
-    public void lPushRight(String key, Object value) {
-        getRRDeque(key).addLast(value);
+    public <T> void lPushRight(String key, T value) {
+        RDeque<T> rDeque = getRRDeque(key);
+        rDeque.addLast(value);
     }
 
 
@@ -500,8 +521,9 @@ public class RedisUtil {
      * @return 移除的个数
      */
 
-    public boolean lDel(String key, int count, Object value) {
-        return getRList(key).remove(value, count);
+    public <V> boolean lDel(String key, int count, V value) {
+        RList<V> rList = getRList(key);
+        return rList.remove(value, count);
     }
 
 
