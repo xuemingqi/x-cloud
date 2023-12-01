@@ -208,7 +208,7 @@ public class RedisUtil {
      * @param key 键
      * @param map 对应多个键值
      */
-    public void hMSet(String key, Map<String, Object> map) {
+    public <K, V> void hMSet(String key, Map<? extends K, ? extends V> map) {
         getRMapCache(key).putAll(map);
     }
 
