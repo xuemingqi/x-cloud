@@ -10,7 +10,7 @@
 
 
 #### 介绍
-The template for the Spring Cloud Alibaba project
+基于 Spring Cloud Alibaba 框架的项目通用模板
 
 
 #### 软件架构
