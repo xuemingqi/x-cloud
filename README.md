@@ -44,30 +44,20 @@
 
 
 #### 安装教程
-
 1.  启动nacos
 2.  启动基础服务，mysql、redis、rocketmq
 3.  启动任意服务
 
 
 #### 使用说明
-
 1.  swagger通过gateway集成,url->https://gateway-host/doc.html
 
 
 #### 参与贡献
-
 1.  Fork 本仓库
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  个人博客 [blog.yonyeyy.com](https://blog.yonyeyy.com)
-3.  个人github仓库 [https://github.com/xuemingqi](https://github.com/xuemingqi)
 
 
 #### 星数
