@@ -63,12 +63,5 @@ Websocket
 4.  Create a new Pull Request
 
 
-#### Special Skills
-
-1.  Use Readme_XXX.md to support different languages, such as Readme_en.md, Readme_zh.md
-2.  Personal blog [blog.yonyeyy.com](https://blog.yonyeyy.com)
-3.  Personal GitHub repository [https://github.com/xuemingqi](https://github.com/xuemingqi)
-
-
 #### Stargazers over time
 [![Stargazers over time](https://starchart.cc/xuemingqi/x-cloud.svg)](https://starchart.cc/xuemingqi/x-cloud)
