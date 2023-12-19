@@ -1,7 +1,17 @@
 # x-cloud
 
+<p>
+    <img src="https://custom-icon-badges.herokuapp.com/github/license/xuemingqi/x-cloud?logo=law&color=orange" alt="License"/>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fxuemingqi%2Fx-cloud&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="hits"/>
+    <img src="https://custom-icon-badges.herokuapp.com/github/v/release/xuemingqi/x-cloud?logo=rocket" alt="version">
+    <img src="https://custom-icon-badges.herokuapp.com/github/issues-pr-closed/xuemingqi/x-cloud?color=purple&logo=git-pull-request&logoColor=white" alt="issues"/>
+    <img src="https://custom-icon-badges.herokuapp.com/github/last-commit/xuemingqi/x-cloud?logo=history&logoColor=white" alt="last-commit"/>
+</p>
+
+
 #### Introduction
 The template for the Spring Cloud Alibaba project
+
 
 #### Software Architecture
 ```
@@ -19,6 +29,7 @@ The template for the Spring Cloud Alibaba project
 │   │   ├── x-websocket  -- Websocket service
 │   │   ├── x-work       -- Main business service
 ```
+
 
 ### Technology Stack
 Spring Boot 2.6.13  
@@ -38,9 +49,11 @@ Websocket
 2.  Start basic services such as MySQL, Redis, RocketMQ
 3.  Start any service
 
+
 #### Usage Instructions
 
 1.  Swagger is integrated through the gateway, URL->https://gateway-host/doc.html
+
 
 #### Contribution
 
@@ -55,3 +68,7 @@ Websocket
 1.  Use Readme_XXX.md to support different languages, such as Readme_en.md, Readme_zh.md
 2.  Personal blog [blog.yonyeyy.com](https://blog.yonyeyy.com)
 3.  Personal GitHub repository [https://github.com/xuemingqi](https://github.com/xuemingqi)
+
+
+#### Stargazers over time
+[![Stargazers over time](https://starchart.cc/xuemingqi/x-cloud.svg)](https://starchart.cc/xuemingqi/x-cloud)

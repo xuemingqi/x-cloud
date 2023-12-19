@@ -1,7 +1,17 @@
 # x-cloud
 
+<p>
+    <img src="https://custom-icon-badges.herokuapp.com/github/license/xuemingqi/x-cloud?logo=law&color=orange" alt="License"/>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fxuemingqi%2Fx-cloud&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="hits"/>
+    <img src="https://custom-icon-badges.herokuapp.com/github/v/release/xuemingqi/x-cloud?logo=rocket" alt="version">
+    <img src="https://custom-icon-badges.herokuapp.com/github/issues-pr-closed/xuemingqi/x-cloud?color=purple&logo=git-pull-request&logoColor=white" alt="issues"/>
+    <img src="https://custom-icon-badges.herokuapp.com/github/last-commit/xuemingqi/x-cloud?logo=history&logoColor=white" alt="last-commit"/>
+</p>
+
+
 #### 介绍
 The template for the Spring Cloud Alibaba project
+
 
 #### 软件架构
 ```
@@ -19,6 +29,7 @@ The template for the Spring Cloud Alibaba project
 │   │   ├── x-websocket  -- websocket服务
 │   │   ├── x-work       -- 主要业务服务
 ```
+
 
 ### 技术栈
 1. Spring Boot 2.6.13  
@@ -38,9 +49,11 @@ The template for the Spring Cloud Alibaba project
 2.  启动基础服务，mysql、redis、rocketmq
 3.  启动任意服务
 
+
 #### 使用说明
 
 1.  swagger通过gateway集成,url->https://gateway-host/doc.html
+
 
 #### 参与贡献
 
@@ -55,3 +68,7 @@ The template for the Spring Cloud Alibaba project
 1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
 2.  个人博客 [blog.yonyeyy.com](https://blog.yonyeyy.com)
 3.  个人github仓库 [https://github.com/xuemingqi](https://github.com/xuemingqi)
+
+
+#### 星数
+[![Stargazers over time](https://starchart.cc/xuemingqi/x-cloud.svg)](https://starchart.cc/xuemingqi/x-cloud)
