@@ -18,6 +18,7 @@
 
     <properties>
         <openai.version>0.10.0</openai.version>
+        <wx.version>3.7.0</wx.version>
     </properties>
 
     <dependencies>
@@ -78,6 +79,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+
+        <!-- wx -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-mp</artifactId>
+            <version>${wx.version}</version>
         </dependency>
     </dependencies>
 </project>

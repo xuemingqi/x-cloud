@@ -43,7 +43,8 @@ public enum ResponseCodeEnum {
      * work模块
      */
     FILE_NOT_EXIST(HttpStatus.BAD_REQUEST, 12001, "文件不存在"),
-    OPENAI_ERROR(HttpStatus.BAD_REQUEST, 12002, "chatGPT服务错误,请重试！");
+    OPENAI_ERROR(HttpStatus.BAD_REQUEST, 12002, "chatGPT服务错误,请重试！"),
+    WX_GET_USER_INFO_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, 12003, "获取微信用户信息错误");
 
 
     private final HttpStatus httpStatus;
