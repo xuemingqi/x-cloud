@@ -28,10 +28,38 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- server -->
+        <!-- config core -->
         <dependency>
             <groupId>com.x.config</groupId>
-            <artifactId>x-config</artifactId>
+            <artifactId>x-config-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config web -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-web</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config db -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-db</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config redis -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-redis</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config mq -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-mq</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
@@ -54,18 +82,6 @@
             <groupId>com.x.websocket</groupId>
             <artifactId>x-websocket-api</artifactId>
             <version>${project.parent.version}</version>
-        </dependency>
-
-        <!-- redisson -->
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
-        </dependency>
-
-        <!-- rocketMq -->
-        <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-spring-boot-starter</artifactId>
         </dependency>
 
         <!-- chatGPT -->

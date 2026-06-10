@@ -34,10 +34,31 @@
             <version>${jwt.version}</version>
         </dependency>
 
-        <!-- server -->
+        <!-- config core -->
         <dependency>
             <groupId>com.x.config</groupId>
-            <artifactId>x-config</artifactId>
+            <artifactId>x-config-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config web -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-web</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config redis -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-redis</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config db -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-db</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
@@ -55,11 +76,6 @@
             <version>${project.parent.version}</version>
         </dependency>
 
-        <!-- redisson -->
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

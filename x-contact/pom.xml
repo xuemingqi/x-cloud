@@ -23,10 +23,24 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- server -->
+        <!-- config core -->
         <dependency>
             <groupId>com.x.config</groupId>
-            <artifactId>x-config</artifactId>
+            <artifactId>x-config-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config web -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-web</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- config db -->
+        <dependency>
+            <groupId>com.x.config</groupId>
+            <artifactId>x-config-db</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 

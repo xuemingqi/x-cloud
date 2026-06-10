@@ -13,72 +13,15 @@
 
     <groupId>com.x.config</groupId>
     <artifactId>x-config</artifactId>
+    <packaging>pom</packaging>
     <name>x-config</name>
     <description>x config</description>
 
-    <dependencies>
-        <!-- redisson -->
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- rocket mq-->
-        <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-spring-boot-starter</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- mybatis-plus -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-
-        <!-- db -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <!-- mybatis-plus generator -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-        </dependency>
-
-        <!-- velocity模板 -->
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-        </dependency>
-
-        <!-- configuration -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- common -->
-        <dependency>
-            <groupId>com.x.common</groupId>
-            <artifactId>x-common</artifactId>
-            <optional>true</optional>
-            <version>${project.parent.version}</version>
-        </dependency>
-
-        <!-- x auth api -->
-        <dependency>
-            <groupId>com.x.auth</groupId>
-            <artifactId>x-auth-api</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>x-config-core</module>
+        <module>x-config-web</module>
+        <module>x-config-db</module>
+        <module>x-config-redis</module>
+        <module>x-config-mq</module>
+    </modules>
 </project>

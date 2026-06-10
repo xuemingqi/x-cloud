@@ -31,6 +31,7 @@
         <spring-boot.version>2.4.1</spring-boot.version>
         <rocketmq.version>2.2.3</rocketmq.version>
         <velocity.version>2.3</velocity.version>
+        <jakarta.annotation-api.version>2.1.1</jakarta.annotation-api.version>
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <skipTests>true</skipTests>
     </properties>
@@ -139,6 +140,12 @@
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
             <version>${jakarta.validation-api.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${jakarta.annotation-api.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
