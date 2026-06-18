@@ -1,4 +1,4 @@
-# x-cloud-private
+# x-cloud
 
 <p>
     <img src="https://custom-icon-badges.herokuapp.com/github/license/xuemingqi/x-cloud?logo=law&color=orange" alt="License"/>
@@ -10,7 +10,7 @@
 
 
 #### 介绍
-x-cloud-private 是基于 Spring Boot 4、Spring Cloud Alibaba 的微服务工程模板。
+x-cloud 是基于 Spring Boot 4、Spring Cloud Alibaba 的微服务工程模板。
 
 当前工程已按 API、服务、公共能力、框架能力分层组织，并新增 AgentScope Java 智能体服务与静态工作台。
 
