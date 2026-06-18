@@ -1,6 +1,7 @@
 package com.x.common.utils;
 
 import cn.hutool.core.io.IoUtil;
+import cn.hutool.core.util.IdUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import net.schmizz.sshj.SSHClient;
@@ -34,7 +35,7 @@ public class FileUtil extends cn.hutool.core.io.FileUtil {
      */
     @SneakyThrows
     public static File getServerFile(String ip, int port, String username, String password, String path, int size) {
-        File file = new File(UUIDUtil.generatorId());
+        File file = new File(IdUtil.simpleUUID());
         Session session = null;
         try (SSHClient ssh = new SSHClient()) {
             ssh.addHostKeyVerifier(new PromiscuousVerifier());

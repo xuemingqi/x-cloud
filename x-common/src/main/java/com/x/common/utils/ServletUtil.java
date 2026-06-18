@@ -1,13 +1,14 @@
 package com.x.common.utils;
 
 import eu.bitwalker.useragentutils.UserAgent;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -92,6 +93,16 @@ public class ServletUtil {
         return getRequest().getHeader(key);
     }
 
+    /**
+     * 设置请求头
+     *
+     * @param key   请求头
+     * @param value 请求头内容
+     */
+    public static void setHeader(String key, String value) {
+        getRequest().setAttribute(key, value);
+    }
+
 
     /**
      * 获取客户端浏览器信息
@@ -137,6 +148,21 @@ public class ServletUtil {
             }
         }
         return request.getRemoteAddr();
+    }
+
+    /**
+     * 获取远程请求IP地址
+     *
+     * @return 远程请求IP地址
+     */
+    public static String getRemoteIP(HttpHeaders headers) {
+        for (final String ipHeader : ipHeaders) {
+            final String ip = headers.getFirst(ipHeader);
+            if (ip != null && !ip.trim().isEmpty()) {
+                return ip.trim();
+            }
+        }
+        return null;
     }
 
 

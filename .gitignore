@@ -1,8 +1,10 @@
-*/.idea
-*/target
+**/target
 */*.iml
-*/logs
+**/logs
 
 *.iml
 .idea
-logs
+/.agentscope/
+/.superpowers/
+/CLAUDE.md
+/docs/superpowers/

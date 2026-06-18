@@ -16,16 +16,16 @@ import lombok.NoArgsConstructor;
 @Schema(name = "PageDataResult", description = "分页信息")
 public class PageDataResult {
 
-    @Schema(name = "page", description = "当前页")
+    @Schema(name = "page", description = "当前页", requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer page;
 
-    @Schema(name = "pageTotal", description = "总页数")
+    @Schema(name = "pageTotal", description = "总页数", requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer pageTotal;
 
-    @Schema(name = "pageSize", description = "分页条数")
+    @Schema(name = "pageSize", description = "分页条数", requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer pageSize;
 
-    @Schema(name = "hasNextPages", description = "是否有下一页")
+    @Schema(name = "hasNextPages", description = "是否有下一页", requiredMode = Schema.RequiredMode.REQUIRED)
     private Boolean hasNextPages;
 
 }

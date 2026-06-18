@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: x-contact
+  config:
+    import:
+      - optional:nacos:x-contact.yaml
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+        file-extension: yaml
+      discovery:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+      username: ${nacos.username}
+      password: ${nacos.password}
+
+nacos:
+  server-addr: 127.0.0.1:8848
+  username: x-dev
+  password: password
+  namespace: namespace

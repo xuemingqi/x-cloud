@@ -15,10 +15,10 @@ import java.io.Serializable;
 @Schema(name = "BasePageResult", description = "通用分页返回格式")
 public class BasePageResult<T> implements Serializable {
 
-    @Schema(name = "pageData", description = "分页信息")
+    @Schema(name = "pageData", description = "分页信息", requiredMode = Schema.RequiredMode.REQUIRED)
     private PageDataResult pageData;
 
-    @Schema(name = "results", description = "分页内容")
+    @Schema(name = "results", description = "分页内容", requiredMode = Schema.RequiredMode.REQUIRED)
     private T results;
 
     public static <T> BasePageResult<T> getInstance(Integer page, Integer pageSize, Integer total, T results) {

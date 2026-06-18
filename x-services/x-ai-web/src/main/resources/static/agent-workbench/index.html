@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>x-agent 工作台</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">X</div>
+      <div>
+        <h1>x-agent</h1>
+        <span>AgentScope Workbench</span>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Agent abilities">
+      <button class="nav-item active" data-panel="runPanel" type="button">
+        <span class="icon">▶</span>
+        <span>运行</span>
+      </button>
+      <button class="nav-item" data-panel="eventPanel" type="button">
+        <span class="icon">≋</span>
+        <span>事件</span>
+      </button>
+      <button class="nav-item" data-panel="planPanel" type="button">
+        <span class="icon">☷</span>
+        <span>计划</span>
+      </button>
+      <button class="nav-item" data-panel="memoryPanel" type="button">
+        <span class="icon">◉</span>
+        <span>记忆</span>
+      </button>
+      <button class="nav-item" data-panel="filePanel" type="button">
+        <span class="icon">▣</span>
+        <span>文件</span>
+      </button>
+      <button class="nav-item" data-panel="settingPanel" type="button">
+        <span class="icon">⚙</span>
+        <span>设置</span>
+      </button>
+    </nav>
+
+    <section class="capability-box">
+      <div class="box-title">
+        <span>能力</span>
+        <button id="refreshCapabilitiesBtn" class="ghost small" type="button">刷新</button>
+      </div>
+      <div id="capabilityList" class="capability-list">
+        <div class="empty">未加载</div>
+      </div>
+    </section>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="endpoint">
+        <label for="apiBaseInput">API</label>
+        <input id="apiBaseInput" type="url" autocomplete="off">
+        <button id="saveEndpointBtn" class="ghost" type="button">保存</button>
+      </div>
+      <div id="connectionBadge" class="badge muted">待连接</div>
+    </header>
+
+    <section class="workspace">
+      <div class="panel active" id="runPanel">
+        <div class="panel-head">
+          <div>
+            <h2>任务运行</h2>
+            <p>选择能力，发送任务，查看 AgentScope 执行结果。</p>
+          </div>
+          <div class="segmented">
+            <button id="runBtn" class="primary" type="button">运行</button>
+            <button id="streamBtn" type="button">流式</button>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            <span>用户</span>
+            <input id="userIdInput" type="text" value="web-user">
+          </label>
+          <label>
+            <span>会话</span>
+            <input id="sessionIdInput" type="text" value="web-session">
+          </label>
+          <label>
+            <span>能力</span>
+            <select id="capabilitySelect">
+              <option value="BASIC_AGENT">BASIC_AGENT</option>
+              <option value="TOOL_SYSTEM">TOOL_SYSTEM</option>
+              <option value="CONTEXT_COMPACTION">CONTEXT_COMPACTION</option>
+              <option value="WORKSPACE">WORKSPACE</option>
+              <option value="MEMORY_MANAGEMENT">MEMORY_MANAGEMENT</option>
+              <option value="FILESYSTEM">FILESYSTEM</option>
+              <option value="SANDBOX">SANDBOX</option>
+              <option value="HARNESS_SKILL">HARNESS_SKILL</option>
+              <option value="PLANNING">PLANNING</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="prompt-box">
+          <span>任务</span>
+          <textarea id="promptInput" rows="8">请用 AgentScope 工具完成一次最小能力演示：先说明当前会话，再列出你可用的工具，最后给出下一步建议。</textarea>
+        </label>
+
+        <details class="context-card">
+          <summary>上下文 JSON</summary>
+          <textarea id="contextInput" rows="5">{
+  "source": "x-ai-web",
+  "mode": "workbench"
+}</textarea>
+        </details>
+      </div>
+
+      <div class="panel" id="eventPanel">
+        <div class="panel-head compact">
+          <div>
+            <h2>消息与事件</h2>
+            <p>流式运行会持续追加事件，普通运行会展示响应附带事件。</p>
+          </div>
+          <button id="clearEventsBtn" class="ghost" type="button">清空</button>
+        </div>
+        <div id="eventTimeline" class="timeline">
+          <div class="empty">暂无事件</div>
+        </div>
+      </div>
+
+      <div class="panel" id="planPanel">
+        <div class="panel-head">
+          <div>
+            <h2>计划模式</h2>
+            <p>进入或退出 AgentScope plan mode，适合多步骤任务。</p>
+          </div>
+          <div class="segmented">
+            <button id="enterPlanBtn" class="primary" type="button">进入</button>
+            <button id="exitPlanBtn" type="button">退出</button>
+          </div>
+        </div>
+        <textarea id="planPromptInput" rows="8">为当前任务创建一个三步计划：确认目标、调用必要工具、汇总结果。</textarea>
+      </div>
+
+      <div class="panel" id="memoryPanel">
+        <div class="panel-head compact">
+          <div>
+            <h2>记忆</h2>
+            <p>通过智能体工具写入和检索最小记忆样例。</p>
+          </div>
+        </div>
+        <div class="quick-grid">
+          <button class="quick-action" data-capability="MEMORY_MANAGEMENT" data-prompt="请调用记忆工具保存一条事实：x-ai-web 是 AgentScope 的静态工作台。" type="button">保存事实</button>
+          <button class="quick-action" data-capability="MEMORY_MANAGEMENT" data-prompt="请检索和 x-ai-web 有关的记忆，并总结命中的内容。" type="button">检索事实</button>
+        </div>
+      </div>
+
+      <div class="panel" id="filePanel">
+        <div class="panel-head compact">
+          <div>
+            <h2>文件系统</h2>
+            <p>通过智能体文件工具读取、写入工作区内容。</p>
+          </div>
+        </div>
+        <div class="quick-grid">
+          <button class="quick-action" data-capability="FILESYSTEM" data-prompt="请列出当前工作区根目录文件，并说明哪些和 x-ai 有关。" type="button">列目录</button>
+          <button class="quick-action" data-capability="FILESYSTEM" data-prompt="请在工作区中创建一个 agentscope-demo.md，写入一段最小演示说明。" type="button">写文件</button>
+          <button class="quick-action" data-capability="WORKSPACE" data-prompt="请读取工作区上下文，说明 AGENTS.md 或 MEMORY.md 是否存在。" type="button">读工作区</button>
+        </div>
+      </div>
+
+      <div class="panel" id="settingPanel">
+        <div class="panel-head compact">
+          <div>
+            <h2>权限与连接</h2>
+            <p>切换 AgentScope permission mode，调整前端请求地址。</p>
+          </div>
+        </div>
+        <div class="form-grid">
+          <label>
+            <span>权限模式</span>
+            <select id="permissionModeSelect">
+              <option value="default">default</option>
+              <option value="accept_edits">accept_edits</option>
+              <option value="explore">explore</option>
+              <option value="bypass">bypass</option>
+              <option value="dont_ask">dont_ask</option>
+            </select>
+          </label>
+          <div class="field-action">
+            <button id="applyPermissionBtn" class="primary" type="button">应用权限</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="result-pane">
+        <div class="result-head">
+          <div>
+            <h2>响应</h2>
+            <span id="lastTaskMeta">未运行</span>
+          </div>
+          <button id="clearResultBtn" class="ghost" type="button">清空</button>
+        </div>
+        <pre id="resultOutput">等待任务...</pre>
+      </section>
+    </section>
+  </main>
+</div>
+
+<template id="eventTemplate">
+  <article class="event-item">
+    <div class="event-dot"></div>
+    <div>
+      <div class="event-meta"></div>
+      <div class="event-content"></div>
+    </div>
+  </article>
+</template>
+
+<script src="./app.js"></script>
+</body>
+</html>

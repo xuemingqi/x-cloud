@@ -1,9 +1,10 @@
 #!/bin/bash
 #启动任意多个jar
 start() {
-  USAGE='Usage:start project path'
-  for i in $@; do
-    project=$i
+  USAGE='Usage: start <env> <project path>'
+  env=$1
+  shift
+  for project in "$@"; do
     if [[ ! $project ]]; then
       echo "specify the project！"
       exit 1
@@ -15,17 +16,17 @@ start() {
     if [[ $pid ]]; then
       echo "[$project] is running!"
     else
-      if nohup java -Dfile.encoding=utf-8 -jar $project >/dev/null 2>&1 & then
-        echo "[$project] is starting!"
+      if nohup java -Dspring.profiles.active=$env -Dfile.encoding=utf-8 -jar $project >/dev/null 2>&1 & then
+        echo "[$project] is starting with environment [$env]!"
       fi
     fi
   done
 }
+
 #kill掉任意多个jar
 killJar() {
-  USAGE='Usage:kill project path'
-  for i in $@; do
-    project=$i
+  USAGE='Usage: kill <project path>'
+  for project in "$@"; do
     if [[ ! $project ]]; then
       echo "specify the project！"
       exit 1
@@ -39,10 +40,12 @@ killJar() {
     fi
   done
 }
+
 #启动指定目录下所有jar包，默认启动目录下所有jar包
 native() {
-  USAGE='Usage:native'
-  projectdir=$1
+  USAGE='Usage: native <env> <project path>'
+  env=$1
+  projectdir=$2
   if [[ ! $projectdir ]]; then
     echo "specify the project path！"
     exit 1
@@ -53,13 +56,14 @@ native() {
     if [[ -n $PID ]]; then
       echo "[$name] is running!"
     else
-      if nohup java -Dfile.encoding=utf-8 -jar ./$name >/dev/null 2>&1 & then
-        echo "[$name] is starting!"
+      if nohup java -Dspring.profiles.active=$env -Dfile.encoding=utf-8 -jar ./$name >/dev/null 2>&1 & then
+        echo "[$name] is starting with environment [$env]!"
       fi
     fi
   done
   exit 0
 }
+
 #kill掉当前目录下所有jar包名字的进程
 stop() {
   for name in $(ls -rt *.jar); do
@@ -69,23 +73,23 @@ stop() {
     fi
   done
 }
+
 case "$1" in
 "start")
-  #echo $@
   shift
-  start $@
+  start "$@"
   ;;
 "kill")
   shift
-  killJar $@
+  killJar "$@"
   ;;
 "native")
   shift
-  native $@
+  native "$@"
   ;;
 "stop")
   shift
-  stop $@
+  stop "$@"
   ;;
 *)
   usage

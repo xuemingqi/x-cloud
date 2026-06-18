@@ -1,9 +1,12 @@
 package com.x.common.utils;
 
 import com.x.common.constants.CommonConstant;
+import com.x.common.dto.UserInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 import org.springframework.util.ObjectUtils;
+
+import java.lang.management.ManagementFactory;
 
 /**
  * @author : xuemingqi
@@ -29,5 +32,40 @@ public class ServerUtil {
             return null;
         }
         return jwtStr.substring(jwtTokenPreLength);
+    }
+
+    /**
+     * 设置用户上下文
+     *
+     * @param userInfo 用户上下文对象
+     */
+    public static void setAuthenticatedUser(UserInfo userInfo) {
+        UserThreadLocalUtil.set(userInfo);
+    }
+
+    /**
+     * 获取用户上下文
+     *
+     * @return 当前用户上下文，可能为null
+     */
+    public static UserInfo getAuthenticatedUser() {
+        return UserThreadLocalUtil.get();
+    }
+
+    /**
+     * 获取UserId
+     */
+    public static Long getAuthenticatedUserId() {
+        return UserThreadLocalUtil.getOptional()
+                .map(userInfo -> Long.valueOf(userInfo.getUserId()))
+                .orElse(null);
+    }
+
+    /**
+     * 获取pid
+     */
+    public static int getPid() {
+        String name = ManagementFactory.getRuntimeMXBean().getName();
+        return Integer.parseInt(name.split("@")[0]);
     }
 }

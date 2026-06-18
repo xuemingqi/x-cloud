@@ -3,8 +3,8 @@ package com.x.common.utils;
 import com.x.common.functional.PropertyCopierBiConsumer;
 import org.springframework.beans.BeanUtils;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListUtil {
 
@@ -17,18 +17,7 @@ public class ListUtil {
      * @return 拷贝
      */
     public static <S, T> List<T> copyList(List<S> sourceList, Class<T> clazz) {
-        List<T> result = new ArrayList<>();
-        try {
-            for (S source : sourceList) {
-                T target = clazz.newInstance();
-                BeanUtils.copyProperties(source, target);
-                result.add(target);
-            }
-            return result;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return copyList(sourceList, clazz, BeanUtils::copyProperties);
     }
 
     /**
@@ -42,16 +31,14 @@ public class ListUtil {
      * @return 拷贝结果
      */
     public static <S, T> List<T> copyList(List<S> sourceList, Class<T> targetClass, PropertyCopierBiConsumer<S, T> copier) {
-        List<T> result = new ArrayList<>();
-        try {
-            for (S source : sourceList) {
-                T target = targetClass.newInstance();
+        return sourceList.stream().map(source -> {
+            try {
+                T target = targetClass.getDeclaredConstructor().newInstance();
                 copier.copyProperties(source, target);
-                result.add(target);
+                return target;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
-            return result;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        }).collect(Collectors.toList());
     }
 }

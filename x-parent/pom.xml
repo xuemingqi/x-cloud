@@ -7,43 +7,40 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.13</version>
+        <version>4.0.6</version>
         <relativePath/>
     </parent>
 
     <groupId>com.x</groupId>
     <artifactId>x-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>3.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>x-parent</name>
     <description>x parent</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>21</java.version>
 
-        <spring-cloud.version>2021.0.5</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
-        <mybatis-plus.version>3.5.1</mybatis-plus.version>
-        <redisson.version>3.15.5</redisson.version>
-        <swagger.version>3.0.0</swagger.version>
-        <knife4j.version>3.0.3</knife4j.version>
-        <mysql-connector.version>8.0.28</mysql-connector.version>
-        <spring-boot.version>2.4.1</spring-boot.version>
-        <rocketmq.version>2.2.3</rocketmq.version>
+        <spring-boot.version>4.0.6</spring-boot.version>
+        <spring-cloud.version>2025.1.1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2025.1.0.0</spring-cloud-alibaba.version>
+        <agentscope.version>2.0.0-RC3</agentscope.version>
+        <mybatis-plus.version>3.5.16</mybatis-plus.version>
+        <mybatis.version>3.0.3</mybatis.version>
+        <redisson.version>4.5.0</redisson.version>
+        <knife4j.version>4.5.0</knife4j.version>
+        <mysql-connector.version>8.0.33</mysql-connector.version>
+        <rocketmq.version>2.3.0</rocketmq.version>
+        <kafka.version>3.2.3</kafka.version>
         <velocity.version>2.3</velocity.version>
-        <jakarta.annotation-api.version>2.1.1</jakarta.annotation-api.version>
-        <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <skipTests>true</skipTests>
     </properties>
 
     <modules>
-        <module>../x-module</module>
+        <module>../x-services</module>
+        <module>../x-apis</module>
         <module>../x-common</module>
-        <module>../x-config</module>
-        <module>../x-auth-api</module>
-        <module>../x-work-api</module>
-        <module>../x-contact-api</module>
-        <module>../x-websocket-api</module>
+        <module>../x-framework</module>
     </modules>
 
     <dependencyManagement>
@@ -69,7 +66,7 @@
             <!-- mybatis-plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <artifactId>mybatis-plus-spring-boot4-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
@@ -77,6 +74,13 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus jsqlparser -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-jsqlparser</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
@@ -88,11 +92,6 @@
             </dependency>
 
             <!-- db -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-jdbc</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -113,21 +112,36 @@
                 <version>${rocketmq.version}</version>
             </dependency>
 
-            <!-- swagger -->
+            <!-- kafka -->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${swagger.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-kafka</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
 
             <!-- knife4j -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-ui</artifactId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- agentscope -->
+            <dependency>
+                <groupId>io.agentscope</groupId>
+                <artifactId>agentscope-harness</artifactId>
+                <version>${agentscope.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>aliyun-public</id>
+            <name>Aliyun Public Repository</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <!-- lombok -->
@@ -136,17 +150,10 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- validation -->
         <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <version>${jakarta.validation-api.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>${jakarta.annotation-api.version}</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
     </dependencies>
 
@@ -156,6 +163,10 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.graalvm.buildtools</groupId>
+                    <artifactId>native-maven-plugin</artifactId>
                 </plugin>
             </plugins>
         </pluginManagement>

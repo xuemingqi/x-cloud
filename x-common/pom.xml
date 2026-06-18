@@ -7,22 +7,23 @@
     <parent>
         <groupId>com.x</groupId>
         <artifactId>x-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>3.1.0-SNAPSHOT</version>
         <relativePath>../x-parent/pom.xml</relativePath>
     </parent>
 
     <groupId>com.x.common</groupId>
     <artifactId>x-common</artifactId>
+    <version>3.1.0-SNAPSHOT</version>
     <name>x-common</name>
     <description>x common</description>
 
     <properties>
-        <hutool.version>5.8.20</hutool.version>
-        <commons.version>3.12.0</commons.version>
+        <hutool.version>5.8.25</hutool.version>
+        <commons.version>3.17.0</commons.version>
         <bitwalker.version>1.21</bitwalker.version>
-        <ssh.version>0.32.0</ssh.version>
-        <jmh.version>1.35</jmh.version>
-        <zxing.version>3.5.1</zxing.version>
+        <ssh.version>0.39.0</ssh.version>
+        <jmh.version>1.37</jmh.version>
+        <zxing.version>3.5.3</zxing.version>
     </properties>
 
     <dependencies>
@@ -73,16 +74,16 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- swagger -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-        </dependency>
-
         <!-- knife4j -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-ui</artifactId>
+            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -103,6 +104,12 @@
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>${jmh.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- 重试 -->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
         </dependency>
     </dependencies>
 </project>

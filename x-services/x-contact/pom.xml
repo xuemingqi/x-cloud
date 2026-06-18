@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.x</groupId>
+        <artifactId>x-services</artifactId>
+        <version>3.1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>x-contact</artifactId>
+    <version>3.1.0-SNAPSHOT</version>
+    <name>x-contact</name>
+    <description>x contact</description>
+
+    <properties>
+        <commons.version>3.17.0</commons.version>
+    </properties>
+
+    <dependencies>
+        <!-- framework core -->
+        <dependency>
+            <groupId>com.x.framework.core</groupId>
+            <artifactId>x-framework-core</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- framework web -->
+        <dependency>
+            <groupId>com.x.framework.web</groupId>
+            <artifactId>x-framework-web</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- framework db -->
+        <dependency>
+            <groupId>com.x.framework.db</groupId>
+            <artifactId>x-framework-db</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- common -->
+        <dependency>
+            <groupId>com.x.common</groupId>
+            <artifactId>x-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.version}</version>
+        </dependency>
+
+        <!-- x contact api -->
+        <dependency>
+            <groupId>com.x.content</groupId>
+            <artifactId>x-contact-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- seata -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+        </dependency>
+    </dependencies>
+</project>

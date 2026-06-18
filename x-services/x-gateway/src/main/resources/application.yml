@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: x-gateway
+  config:
+    import:
+      - optional:nacos:x-gateway.yaml
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+        file-extension: yaml
+      discovery:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+      username: ${nacos.username}
+      password: ${nacos.password}
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 18721
+
+nacos:
+  server-addr: 127.0.0.1:8848
+  username: x-dev
+  password: password
+  namespace: namespace

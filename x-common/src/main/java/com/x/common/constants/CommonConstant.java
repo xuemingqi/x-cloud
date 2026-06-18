@@ -39,8 +39,15 @@ public class CommonConstant {
 
     public static final String LOGIN_FAIL = "x_login_fail:";
 
+    public static final String IMG_X_POSITION = "x_img_x_position:";
+
     public static int EXPIRE_TIME = 120;
 
     public static String KEY = "dfb35213c7834bd5a97ca4d46f5e101f";
+
+    /**
+     * user
+     */
+    public static final String USER_ID = "user_id";
 
 }

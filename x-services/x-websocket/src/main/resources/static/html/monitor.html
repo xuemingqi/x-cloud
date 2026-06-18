@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Listener</title>
+</head>
+<body>
+<h1>WebSocket Listener</h1>
+<div id="messages"></div>
+
+<script>
+    // 创建 WebSocket 连接
+    const socket = new WebSocket('ws://localhost:18085/websocket/ws/123456');
+
+    // 连接打开事件
+    socket.addEventListener('open', function (event) {
+        console.log('WebSocket is open now.');
+    });
+
+    // 监听消息事件
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+        const messagesDiv = document.getElementById('messages');
+        const messageElement = document.createElement('p');
+        messageElement.textContent = event.data;
+        messagesDiv.appendChild(messageElement);
+    });
+
+    // 连接关闭事件
+    socket.addEventListener('close', function (event) {
+        console.log('WebSocket is closed now.');
+    });
+
+    // 连接错误事件
+    socket.addEventListener('error', function (event) {
+        console.error('WebSocket error observed:', event);
+    });
+</script>
+</body>
+</html>

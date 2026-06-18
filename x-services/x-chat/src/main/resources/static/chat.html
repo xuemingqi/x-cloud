@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在线聊天</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background-color: #f0f2f5;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    /* 登录页面样式 */
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 20px;
+    }
+    .login-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .login-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #444;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .error-message {
+      color: #d32f2f;
+      margin-top: 5px;
+      font-size: 14px;
+      display: none;
+    }
+
+    /* 聊天页面样式 */
+    .chat-container {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+    }
+    .chat-header {
+      background-color: #075e54;
+      color: white;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .connection-status {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    .status-connecting {
+      color: #ffb300;
+    }
+    .status-connected {
+      color: #4caf50;
+    }
+    .status-disconnected {
+      color: #f44336;
+    }
+    .messages-container {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .message {
+      max-width: 70%;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      position: relative;
+    }
+    .message-time {
+      font-size: 12px;
+      color: #999;
+      margin-top: 5px;
+    }
+    .message-received {
+      background-color: white;
+      align-self: flex-start;
+      float: left;
+      clear: both;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .message-sent {
+      background-color: #dcf8c6;
+      align-self: flex-end;
+      float: right;
+      clear: both;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .message-input-container {
+      padding: 15px;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+    }
+    .message-input {
+      flex: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    .send-btn {
+      background-color: #075e54;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .message-sender {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .system-message {
+      text-align: center;
+      color: #888;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- 登录页面 -->
+  <div class="login-container" id="loginPage">
+    <div class="login-form">
+      <h2 class="login-title">欢迎使用在线聊天</h2>
+      <div class="form-group">
+        <label for="userId">请输入您的用户ID（仅数字）</label>
+        <input type="text" id="userId" class="form-control" placeholder="请输入数字ID">
+        <div id="userIdError" class="error-message">请输入有效的数字ID</div>
+      </div>
+      <div class="form-group">
+        <label for="username">您的昵称</label>
+        <input type="text" id="username" class="form-control" placeholder="请输入昵称">
+      </div>
+      <button class="btn" id="loginBtn">进入聊天</button>
+    </div>
+  </div>
+
+  <!-- 聊天页面 -->
+  <div class="chat-container" id="chatPage">
+    <div class="chat-header">
+      <div class="user-info">
+        <div class="user-avatar" id="userAvatar"></div>
+        <span id="currentUsername">用户名</span>
+        <span id="connectionStatus" class="connection-status status-connecting">连接中...</span>
+      </div>
+      <div>
+        <span>群组ID: 1</span>
+      </div>
+    </div>
+    <div class="messages-container" id="messagesContainer">
+      <!-- 消息内容将在这里动态生成 -->
+      <div class="system-message">正在加载历史消息...</div>
+    </div>
+    <div class="message-input-container">
+      <input type="text" id="messageInput" class="message-input" placeholder="请输入消息...">
+      <button class="send-btn" id="sendBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 基础URL配置
+  const BASE_URL = 'http://127.0.0.1:18087/chat';
+  const WS_BASE_URL = 'ws://127.0.0.1:18085/websocket/channel';
+
+  // 全局变量
+  let currentUser = {
+    id: 0,
+    name: ''
+  };
+
+  // WebSocket连接
+  let socket = null;
+
+  // 消息ID集合，用于去重
+  const messageIds = new Set();
+
+  // 默认群组ID
+  const DEFAULT_GROUP_ID = 1;
+
+  // DOM元素
+  const loginPage = document.getElementById('loginPage');
+  const chatPage = document.getElementById('chatPage');
+  const userId = document.getElementById('userId');
+  const userIdError = document.getElementById('userIdError');
+  const username = document.getElementById('username');
+  const loginBtn = document.getElementById('loginBtn');
+  const userAvatar = document.getElementById('userAvatar');
+  const currentUsername = document.getElementById('currentUsername');
+  const connectionStatus = document.getElementById('connectionStatus');
+  const messagesContainer = document.getElementById('messagesContainer');
+  const messageInput = document.getElementById('messageInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  // 输入验证
+  userId.addEventListener('input', () => {
+    if (!/^\d+$/.test(userId.value) && userId.value !== '') {
+      userIdError.style.display = 'block';
+      loginBtn.disabled = true;
+    } else {
+      userIdError.style.display = 'none';
+      loginBtn.disabled = false;
+    }
+  });
+
+  // 登录按钮点击事件
+  loginBtn.addEventListener('click', () => {
+    const id = userId.value.trim();
+    const name = username.value.trim() || `用户${id}`;
+
+    if (!id || !/^\d+$/.test(id)) {
+      userIdError.style.display = 'block';
+      return;
+    }
+
+    // 设置当前用户信息
+    currentUser.id = parseInt(id);
+    currentUser.name = name;
+
+    // 更新UI
+    userAvatar.textContent = name.substring(0, 1).toUpperCase();
+    currentUsername.textContent = name;
+
+    // 切换到聊天页面
+    loginPage.style.display = 'none';
+    chatPage.style.display = 'flex';
+
+    // 获取历史消息
+    getGroupMessages(DEFAULT_GROUP_ID);
+
+    // 连接WebSocket
+    connectWebSocket(currentUser.id);
+  });
+
+  // 发送按钮点击事件
+  sendBtn.addEventListener('click', sendMessage);
+
+  // 按回车键发送消息
+  messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  });
+
+  // 连接WebSocket
+  function connectWebSocket(userId) {
+    connectionStatus.className = 'connection-status status-connecting';
+    connectionStatus.textContent = '连接中...';
+
+    // 关闭之前的连接
+    if (socket) {
+      socket.close();
+    }
+
+    // 创建新连接
+    socket = new WebSocket(`${WS_BASE_URL}/1`);
+
+    // 连接成功
+    socket.onopen = function() {
+      connectionStatus.className = 'connection-status status-connected';
+      connectionStatus.textContent = '已连接';
+      addSystemMessage('连接成功，可以开始聊天了');
+    };
+
+    // 接收消息
+    socket.onmessage = function(event) {
+      try {
+        const response = JSON.parse(event.data);
+
+        // 检查消息格式
+        if (response.state === 1 && response.data) {
+          const messageData = response.data;
+
+          // 将接收到的数据格式转换为UI需要的格式
+          const message = {
+            id: messageData.messagesId,
+            senderId: Number(messageData.senderId),
+            content: messageData.content,
+            timestamp: messageData.sendTime,
+            sender: messageData.senderId === currentUser.id ? currentUser.name : `用户${messageData.senderId}`
+          };
+
+          // 跳过自己发送的消息，因为已经在本地添加过了
+          if (Number(message.senderId) === Number(currentUser.id)) {
+            // 可以选择更新临时ID为服务器返回的ID
+            return; // 不再处理自己发送的消息
+          }
+
+          // 只处理不是自己发送且未重复的消息
+          if (!messageIds.has(message.id)) {
+            addMessageToUI(message, false); // 这些都是他人的消息，所以传false
+            messageIds.add(message.id);
+          }
+        }
+      } catch (error) {
+        console.error('解析消息失败:', error);
+      }
+    };
+
+    // 连接关闭
+    socket.onclose = function() {
+      connectionStatus.className = 'connection-status status-disconnected';
+      connectionStatus.textContent = '已断开';
+      addSystemMessage('连接已断开，请刷新页面重新连接');
+    };
+
+    // 连接错误
+    socket.onerror = function(error) {
+      connectionStatus.className = 'connection-status status-disconnected';
+      connectionStatus.textContent = '连接失败';
+      addSystemMessage('WebSocket连接失败，将使用轮询方式接收消息');
+      console.error('WebSocket错误:', error);
+
+      // 如果WebSocket连接失败，退回到轮询方式
+      setInterval(() => {
+        getGroupMessages(DEFAULT_GROUP_ID);
+      }, 5000);
+    };
+  }
+
+  // 发送消息函数
+  function sendMessage() {
+    const content = messageInput.value.trim();
+    if (!content) return;
+
+    // 构造消息对象
+    const message = {
+      groupId: DEFAULT_GROUP_ID,
+      senderId: currentUser.id,
+      receiverId: null, // 群聊模式不需要指定接收者
+      content: content,
+      type: "0" // 假设0为文本消息
+    };
+
+    // 先添加到UI（乐观更新）
+    const tempId = `temp-${Date.now()}`;
+    addMessageToUI({
+      id: tempId,
+      sender: currentUser.name,
+      senderId: currentUser.id,
+      content: content,
+      timestamp: new Date().toISOString()
+    }, true);
+
+    // 清空输入框
+    messageInput.value = '';
+
+    // 发送到服务器
+    fetch(`${BASE_URL}/messages/send`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(message)
+    })
+            .then(response => response.json())
+            .then(data => {
+              if (data.code !== 200) {
+                console.error('发送消息失败:', data.msg);
+                addSystemMessage(`消息发送失败: ${data.msg}`);
+              }
+            })
+            .catch(error => {
+              console.error('发送消息出错:', error);
+              addSystemMessage('消息发送失败，请检查网络连接');
+            });
+  }
+
+  // 获取群组历史消息
+  function getGroupMessages(groupId) {
+    fetch(`${BASE_URL}/messages/group/${groupId}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.code === 200 && data.data) {
+                // 移除加载提示
+                messagesContainer.querySelectorAll('.system-message').forEach(el => el.remove());
+
+                // 添加消息到UI
+                const messages = data.data;
+                if (Array.isArray(messages)) {
+                  // 记录之前的消息总数
+                  const previousCount = messageIds.size;
+
+                  messages.forEach(msg => {
+                    if (!messageIds.has(msg.id)) {
+                      addMessageToUI(msg, msg.senderId === currentUser.id);
+                      messageIds.add(msg.id);
+                    }
+                  });
+
+                  // 如果有新消息，滚动到底部
+                  if (messageIds.size > previousCount) {
+                    scrollToBottom();
+                  }
+
+                  if (messages.length === 0 && messagesContainer.children.length === 0) {
+                    addSystemMessage('暂无消息，开始聊天吧！');
+                  }
+                }
+              } else {
+                console.error('获取消息失败:', data.msg);
+                addSystemMessage('加载历史消息失败');
+              }
+            })
+            .catch(error => {
+              console.error('获取消息出错:', error);
+              addSystemMessage('加载历史消息失败，请检查网络连接');
+            });
+  }
+
+  // 添加消息到UI
+  function addMessageToUI(message, isSent) {
+    // 检查消息是否已存在
+    const existingMessage = document.getElementById(`msg-${message.id}`);
+    if (existingMessage) {
+      return; // 消息已存在，不重复添加
+    }
+
+    const messageDiv = document.createElement('div');
+    messageDiv.id = `msg-${message.id}`;
+    messageDiv.className = `message ${isSent ? 'message-sent' : 'message-received'} clearfix`;
+
+    let messageContent = '';
+    if (!isSent) {
+      messageContent += `<div class="message-sender">${message.sender || '未知用户'}</div>`;
+    }
+    messageContent += `
+                <div class="message-content">${message.content}</div>
+                <div class="message-time">${formatTime(message.timestamp)}</div>
+            `;
+
+    messageDiv.innerHTML = messageContent;
+    messagesContainer.appendChild(messageDiv);
+
+    // 滚动到最新消息
+    scrollToBottom();
+  }
+
+  // 添加系统消息
+  function addSystemMessage(text) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'system-message';
+    messageDiv.textContent = text;
+    messagesContainer.appendChild(messageDiv);
+
+    // 滚动到最新消息
+    scrollToBottom();
+  }
+
+  // 滚动到底部
+  function scrollToBottom() {
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  // 格式化时间
+  function formatTime(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString('zh-CN', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+  }
+</script>
+</body>
+</html>

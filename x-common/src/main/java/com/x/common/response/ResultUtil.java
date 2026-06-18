@@ -1,6 +1,8 @@
 package com.x.common.response;
 
+import cn.hutool.core.util.StrUtil;
 import com.x.common.enums.ResponseCodeEnum;
+import org.springframework.http.HttpStatus;
 
 /**
  * 通用返回工具类
@@ -10,29 +12,9 @@ import com.x.common.enums.ResponseCodeEnum;
 @SuppressWarnings("unused")
 public class ResultUtil<T> {
 
-    private final BaseResult<T> result = BaseResult.<T>builder().build();
-
-    public ResultUtil<T> code(int code) {
-        this.result.setCode(code);
-        return this;
-    }
-
-    public ResultUtil<T> msg(String msg) {
-        this.result.setMsg(msg);
-        return this;
-    }
-
-    public ResultUtil<T> data(T data) {
-        this.result.setData(data);
-        return this;
-    }
-
-    public BaseResult<T> result() {
-        return this.result;
-    }
-
-    private static <T> BaseResult<T> result(int code, String msg, T data) {
+    private static <T> BaseResult<T> result(HttpStatus status, int code, String msg, T data) {
         return BaseResult.<T>builder()
+                .status(status)
                 .code(code)
                 .msg(msg)
                 .data(data)
@@ -40,7 +22,7 @@ public class ResultUtil<T> {
     }
 
     public static <T> BaseResult<T> buildResult(ResponseCodeEnum response, T data) {
-        return result(response.getCode(), response.getMsg(), data);
+        return result(response.getHttpStatus(), response.getCode(), response.getMsg(), data);
     }
 
     public static <T> BaseResult<T> buildResultSuccess(T data) {
@@ -48,7 +30,7 @@ public class ResultUtil<T> {
     }
 
     public static <T> BaseResult<T> buildResultMsg(ResponseCodeEnum codeEnum, String msg) {
-        return result(codeEnum.getCode(), msg, null);
+        return result(codeEnum.getHttpStatus(), codeEnum.getCode(), msg, null);
     }
 
     public static <T> BaseResult<T> buildResultParamError(String msg) {
@@ -56,8 +38,7 @@ public class ResultUtil<T> {
     }
 
     public static <T> BaseResult<BasePageResult<T>> buildResultSuccess(Integer page, Integer pageSize, Integer total, T data) {
-        BasePageResult<T> pageResult = BasePageResult.getInstance(page, pageSize, total, data);
-        return buildResultSuccess(pageResult);
+        return buildResultSuccess(BasePageResult.getInstance(page, pageSize, total, data));
     }
 
     public static <T> BaseResult<T> buildResultSuccess() {
@@ -68,16 +49,20 @@ public class ResultUtil<T> {
         return buildResult(codeEnum, null);
     }
 
-    public static BaseResult<Void> buildGeneralResultError() {
-        return buildResultError(ResponseCodeEnum.INTERNAL_SERVER_ERROR);
+    public static BaseResult<Void> buildVoidResultError(String msg) {
+        return buildResultMsg(ResponseCodeEnum.INTERNAL_SERVER_ERROR, msg);
     }
 
-    public static <T> BaseResult<T> buildVoidResultError() {
+    public static <T> BaseResult<T> buildGeneralResultError() {
         return buildResultError(ResponseCodeEnum.INTERNAL_SERVER_ERROR);
     }
 
     public static <T> BaseResult<T> buildParseResult(ResponseCodeEnum codeEnum, Object... str) {
-        return result(codeEnum.getCode(), String.format(codeEnum.getMsg(), str), null);
+        return result(codeEnum.getHttpStatus(), codeEnum.getCode(), StrUtil.format(codeEnum.getMsg(), str), null);
+    }
+
+    public static <T> BaseResult<T> buildParseDataResult(ResponseCodeEnum codeEnum, T data, Object... str) {
+        return result(codeEnum.getHttpStatus(), codeEnum.getCode(), StrUtil.format(codeEnum.getMsg(), str), data);
     }
 
 }
