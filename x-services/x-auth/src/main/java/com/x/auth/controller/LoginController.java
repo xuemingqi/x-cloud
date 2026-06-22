@@ -1,10 +1,10 @@
 package com.x.auth.controller;
 
-import com.x.auth.api.LoginApi;
-import com.x.auth.domain.VerificationCodeDo;
-import com.x.auth.domain.VerificationImgDo;
-import com.x.auth.dto.LoginDto;
-import com.x.auth.dto.VerificationImgDto;
+import com.x.api.auth.api.LoginApi;
+import com.x.api.auth.domain.VerificationCodeDo;
+import com.x.api.auth.domain.VerificationImgDo;
+import com.x.api.auth.dto.LoginDto;
+import com.x.api.auth.dto.VerificationImgDto;
 import com.x.auth.service.LoginService;
 import com.x.framework.common.constants.CommonConstant;
 import com.x.framework.common.dto.UserInfo;

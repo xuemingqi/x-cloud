@@ -1,7 +1,7 @@
 package com.x.work.service;
 
 import com.x.framework.common.response.BaseResult;
-import com.x.work.domain.FileSimpleDo;
+import com.x.api.work.domain.FileSimpleDo;
 
 import java.util.List;
 

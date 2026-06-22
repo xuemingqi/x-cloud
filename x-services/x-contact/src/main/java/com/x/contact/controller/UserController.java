@@ -2,10 +2,10 @@ package com.x.contact.controller;
 
 import com.x.framework.common.constants.CommonConstant;
 import com.x.framework.common.response.BaseResult;
-import com.x.contact.api.UserApi;
-import com.x.contact.domain.UserDo;
-import com.x.contact.dto.CreateUserDto;
-import com.x.contact.dto.UserAuthDto;
+import com.x.api.contact.api.UserApi;
+import com.x.api.contact.domain.UserDo;
+import com.x.api.contact.dto.CreateUserDto;
+import com.x.api.contact.dto.UserAuthDto;
 import com.x.contact.service.UserService;
 import com.x.framework.db.annotation.XLog;
 import com.x.framework.web.annotation.Internal;

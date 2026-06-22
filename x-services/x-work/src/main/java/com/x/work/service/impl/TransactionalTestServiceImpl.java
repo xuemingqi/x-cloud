@@ -1,9 +1,9 @@
 package com.x.work.service.impl;
 
 import cn.hutool.core.lang.Snowflake;
-import com.x.contact.api.UserApi;
-import com.x.contact.dto.CreateUserDto;
-import com.x.contact.enums.Sex;
+import com.x.api.contact.api.UserApi;
+import com.x.api.contact.dto.CreateUserDto;
+import com.x.api.contact.enums.Sex;
 import com.x.work.db.entity.Menu;
 import com.x.work.db.service.MenuIService;
 import com.x.work.service.TransactionalTestService;

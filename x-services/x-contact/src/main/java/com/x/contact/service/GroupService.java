@@ -1,10 +1,10 @@
 package com.x.contact.service;
 
 
-import com.x.contact.param.request.CreateGroupReq;
-import com.x.contact.param.request.UpdateGroupReq;
-import com.x.contact.param.response.GroupInfoRes;
-import com.x.contact.param.response.GroupMembersRes;
+import com.x.api.contact.param.request.CreateGroupReq;
+import com.x.api.contact.param.request.UpdateGroupReq;
+import com.x.api.contact.param.response.GroupInfoRes;
+import com.x.api.contact.param.response.GroupMembersRes;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ import com.x.framework.common.utils.ListUtil;
 import com.x.framework.redis.constants.RedisCommonConstant;
 import com.x.work.db.entity.Menu;
 import com.x.work.db.service.MenuIService;
-import com.x.work.domain.MenuDo;
+import com.x.api.work.domain.MenuDo;
 import com.x.work.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;

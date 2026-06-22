@@ -11,10 +11,10 @@ import com.x.contact.db.enums.MemberType;
 import com.x.contact.db.service.GroupIService;
 import com.x.contact.db.service.GroupMemberIService;
 import com.x.contact.db.service.UserIService;
-import com.x.contact.param.request.CreateGroupReq;
-import com.x.contact.param.request.UpdateGroupReq;
-import com.x.contact.param.response.GroupInfoRes;
-import com.x.contact.param.response.GroupMembersRes;
+import com.x.api.contact.param.request.CreateGroupReq;
+import com.x.api.contact.param.request.UpdateGroupReq;
+import com.x.api.contact.param.response.GroupInfoRes;
+import com.x.api.contact.param.response.GroupMembersRes;
 import com.x.contact.service.GroupService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
@@ -135,7 +135,7 @@ public class GroupServiceImpl implements GroupService {
                     GroupMembersRes groupMember = new GroupMembersRes()
                             .setGroupId(member.getGroupId())
                             .setUserId(member.getUserId())
-                            .setType(com.x.contact.enums.MemberType.valueOf(member.getType().name()))
+                            .setType(com.x.api.contact.enums.MemberType.valueOf(member.getType().name()))
                             .setJoinTime(member.getJoinTime());
                     users.stream()
                             .filter(user -> user.getId().equals(member.getUserId()))

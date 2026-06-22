@@ -1,6 +1,6 @@
 package com.x.chat.param.request;
 
-import com.x.contact.enums.MessageType;
+import com.x.api.contact.enums.MessageType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 

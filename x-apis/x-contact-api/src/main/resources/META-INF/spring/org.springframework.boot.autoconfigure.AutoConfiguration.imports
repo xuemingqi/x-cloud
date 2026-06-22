@@ -1,1 +1,1 @@
-com.x.contact.api.autoconfigure.XContactApiFeignAutoConfiguration
+com.x.api.contact.api.autoconfigure.XContactApiFeignAutoConfiguration

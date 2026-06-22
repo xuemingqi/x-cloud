@@ -1,10 +1,10 @@
 package com.x.ai.controller;
 
-import com.x.ai.api.AgentScopeApi;
-import com.x.ai.domain.AgentCapabilityDo;
-import com.x.ai.domain.AgentResponseDo;
-import com.x.ai.dto.AgentPermissionRequestDto;
-import com.x.ai.dto.AgentRequestDto;
+import com.x.api.ai.api.AgentScopeApi;
+import com.x.api.ai.domain.AgentCapabilityDo;
+import com.x.api.ai.domain.AgentResponseDo;
+import com.x.api.ai.dto.AgentPermissionRequestDto;
+import com.x.api.ai.dto.AgentRequestDto;
 import com.x.ai.service.AgentScopeService;
 import com.x.framework.common.constants.CommonConstant;
 import com.x.framework.common.response.BaseResult;

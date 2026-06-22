@@ -3,7 +3,7 @@ package com.x.work.controller;
 import com.x.framework.common.enums.OperationEnum;
 import com.x.framework.common.response.BaseResult;
 import com.x.framework.redis.annotation.AccessLimit;
-import com.x.work.domain.MenuDo;
+import com.x.api.work.domain.MenuDo;
 import com.x.work.service.MenuService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

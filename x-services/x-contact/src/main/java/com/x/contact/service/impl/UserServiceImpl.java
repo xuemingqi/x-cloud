@@ -9,9 +9,9 @@ import com.x.framework.common.utils.EncryptionUtil;
 import com.x.framework.common.exception.XException;
 import com.x.contact.db.entity.User;
 import com.x.contact.db.service.UserIService;
-import com.x.contact.domain.UserDo;
-import com.x.contact.dto.CreateUserDto;
-import com.x.contact.dto.UserAuthDto;
+import com.x.api.contact.domain.UserDo;
+import com.x.api.contact.dto.CreateUserDto;
+import com.x.api.contact.dto.UserAuthDto;
 import com.x.contact.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         UserDo userDo = UserDo.builder().build();
         BeanUtils.copyProperties(user, userDo);
         if (user.getSex() != null) {
-            userDo.setSex(com.x.contact.enums.Sex.valueOf(user.getSex().name()));
+            userDo.setSex(com.x.api.contact.enums.Sex.valueOf(user.getSex().name()));
         }
         return ResultUtil.buildResultSuccess(userDo);
     }

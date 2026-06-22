@@ -1,1 +1,1 @@
-com.x.websocket.api.autoconfigure.XWebSocketApiFeignAutoConfiguration
+com.x.api.websocket.api.autoconfigure.XWebSocketApiFeignAutoConfiguration

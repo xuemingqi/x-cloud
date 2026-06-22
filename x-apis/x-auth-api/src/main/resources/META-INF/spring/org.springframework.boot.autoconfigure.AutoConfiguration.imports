@@ -1,1 +1,1 @@
-com.x.auth.api.autoconfigure.XAuthApiFeignAutoConfiguration
+com.x.api.auth.api.autoconfigure.XAuthApiFeignAutoConfiguration

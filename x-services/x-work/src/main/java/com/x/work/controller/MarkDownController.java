@@ -4,7 +4,7 @@ import com.x.framework.common.enums.OperationEnum;
 import com.x.framework.common.response.BaseResult;
 import com.x.framework.redis.annotation.AccessLimit;
 import com.x.framework.web.annotation.PassToken;
-import com.x.work.domain.FileSimpleDo;
+import com.x.api.work.domain.FileSimpleDo;
 import com.x.work.service.MarkDownService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

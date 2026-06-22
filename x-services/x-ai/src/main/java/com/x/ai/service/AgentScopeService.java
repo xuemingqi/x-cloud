@@ -1,9 +1,9 @@
 package com.x.ai.service;
 
-import com.x.ai.domain.AgentCapabilityDo;
-import com.x.ai.domain.AgentResponseDo;
-import com.x.ai.dto.AgentPermissionRequestDto;
-import com.x.ai.dto.AgentRequestDto;
+import com.x.api.ai.domain.AgentCapabilityDo;
+import com.x.api.ai.domain.AgentResponseDo;
+import com.x.api.ai.dto.AgentPermissionRequestDto;
+import com.x.api.ai.dto.AgentRequestDto;
 import com.x.framework.common.response.BaseResult;
 import reactor.core.publisher.Flux;
 

@@ -9,7 +9,7 @@ import com.x.framework.redis.constants.RedisCommonConstant;
 import com.x.work.db.entity.File;
 import com.x.work.db.enums.FileTypeEnum;
 import com.x.work.db.service.FileIService;
-import com.x.work.domain.FileSimpleDo;
+import com.x.api.work.domain.FileSimpleDo;
 import com.x.work.service.MarkDownService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

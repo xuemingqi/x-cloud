@@ -1,7 +1,7 @@
 package com.x.work.service;
 
 import com.x.framework.common.response.BaseResult;
-import com.x.work.domain.MenuDo;
+import com.x.api.work.domain.MenuDo;
 
 import java.util.List;
 

@@ -1,12 +1,12 @@
 package com.x.ai.service.impl;
 
 import com.x.ai.common.property.AgentScopeProperty;
-import com.x.ai.domain.AgentCapabilityDo;
-import com.x.ai.domain.AgentEventDo;
-import com.x.ai.domain.AgentResponseDo;
-import com.x.ai.dto.AgentPermissionRequestDto;
-import com.x.ai.dto.AgentRequestDto;
-import com.x.ai.enums.AgentCapabilityEnum;
+import com.x.api.ai.domain.AgentCapabilityDo;
+import com.x.api.ai.domain.AgentEventDo;
+import com.x.api.ai.domain.AgentResponseDo;
+import com.x.api.ai.dto.AgentPermissionRequestDto;
+import com.x.api.ai.dto.AgentRequestDto;
+import com.x.api.ai.enums.AgentCapabilityEnum;
 import com.x.ai.service.AgentScopeService;
 import com.x.framework.common.response.BaseResult;
 import com.x.framework.common.response.ResultUtil;

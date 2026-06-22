@@ -2,8 +2,8 @@ package com.x.work.controller;
 
 import com.x.framework.common.constants.CommonConstant;
 import com.x.framework.common.response.BaseResult;
-import com.x.work.domain.NginxLogDo;
-import com.x.work.dto.ServerMessageDto;
+import com.x.api.work.domain.NginxLogDo;
+import com.x.api.work.dto.ServerMessageDto;
 import com.x.work.service.NginxService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

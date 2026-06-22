@@ -1,8 +1,8 @@
 package com.x.auth.service;
 
-import com.x.auth.domain.VerificationCodeDo;
-import com.x.auth.domain.VerificationImgDo;
-import com.x.auth.dto.VerificationImgDto;
+import com.x.api.auth.domain.VerificationCodeDo;
+import com.x.api.auth.domain.VerificationImgDo;
+import com.x.api.auth.dto.VerificationImgDto;
 import com.x.framework.common.dto.UserInfo;
 import com.x.framework.common.response.BaseResult;
 

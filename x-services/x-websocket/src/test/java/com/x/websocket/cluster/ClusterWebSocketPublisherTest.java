@@ -1,7 +1,7 @@
 package com.x.websocket.cluster;
 
 import com.x.framework.redis.util.RedisUtil;
-import com.x.websocket.dto.MessageDto;
+import com.x.api.websocket.dto.MessageDto;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.ArgumentMatchers.argThat;

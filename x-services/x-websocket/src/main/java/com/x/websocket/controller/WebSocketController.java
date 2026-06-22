@@ -1,9 +1,9 @@
 package com.x.websocket.controller;
 
 import com.x.framework.web.annotation.PassToken;
-import com.x.websocket.api.WebSocketApi;
+import com.x.api.websocket.api.WebSocketApi;
 import com.x.websocket.cluster.ClusterWebSocketPublisher;
-import com.x.websocket.dto.MessageDto;
+import com.x.api.websocket.dto.MessageDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
