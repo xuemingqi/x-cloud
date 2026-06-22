@@ -1,7 +1,7 @@
 package com.x.contact.fallback;
 
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
 import com.x.contact.api.GroupApi;
 import com.x.contact.param.request.AddGroupMemberReq;
 import com.x.contact.param.request.CreateGroupReq;

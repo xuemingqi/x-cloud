@@ -1,10 +1,10 @@
 package com.x.work.service.impl;
 
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
-import com.x.common.utils.CompletableUtil;
-import com.x.common.utils.DateUtil;
-import com.x.common.utils.FileUtil;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
+import com.x.framework.common.utils.CompletableUtil;
+import com.x.framework.common.utils.DateUtil;
+import com.x.framework.common.utils.FileUtil;
 import com.x.work.domain.NginxLogDo;
 import com.x.work.dto.ServerMessageDto;
 import com.x.work.service.LocationService;

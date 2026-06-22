@@ -1,7 +1,7 @@
 package com.x.work.controller;
 
-import com.x.common.constants.CommonConstant;
-import com.x.common.response.BaseResult;
+import com.x.framework.common.constants.CommonConstant;
+import com.x.framework.common.response.BaseResult;
 import com.x.work.service.ChatGPTService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

@@ -1,9 +1,9 @@
 package com.x.framework.redis.aspect;
 
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.utils.SpelUtil;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.utils.SpelUtil;
 import com.x.framework.redis.annotation.RedisLock;
-import com.x.framework.core.exception.XException;
+import com.x.framework.common.exception.XException;
 import com.x.framework.redis.util.RedisUtil;
 import jakarta.annotation.Resource;
 import org.aspectj.lang.ProceedingJoinPoint;

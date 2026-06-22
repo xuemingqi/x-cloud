@@ -1,9 +1,9 @@
 package com.x.framework.web.exception.handler;
 
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
-import com.x.framework.core.exception.XBaseException;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
+import com.x.framework.common.exception.XBaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.http.HttpStatus;

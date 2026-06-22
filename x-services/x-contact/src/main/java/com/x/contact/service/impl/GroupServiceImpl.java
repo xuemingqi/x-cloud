@@ -1,16 +1,16 @@
 package com.x.contact.service.impl;
 
 import cn.hutool.core.lang.Snowflake;
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.utils.StringUtil;
-import com.x.framework.core.exception.XException;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.utils.StringUtil;
+import com.x.framework.common.exception.XException;
 import com.x.contact.db.entity.Group;
 import com.x.contact.db.entity.GroupMember;
 import com.x.contact.db.entity.User;
+import com.x.contact.db.enums.MemberType;
 import com.x.contact.db.service.GroupIService;
 import com.x.contact.db.service.GroupMemberIService;
 import com.x.contact.db.service.UserIService;
-import com.x.contact.enums.MemberType;
 import com.x.contact.param.request.CreateGroupReq;
 import com.x.contact.param.request.UpdateGroupReq;
 import com.x.contact.param.response.GroupInfoRes;
@@ -135,7 +135,7 @@ public class GroupServiceImpl implements GroupService {
                     GroupMembersRes groupMember = new GroupMembersRes()
                             .setGroupId(member.getGroupId())
                             .setUserId(member.getUserId())
-                            .setType(member.getType())
+                            .setType(com.x.contact.enums.MemberType.valueOf(member.getType().name()))
                             .setJoinTime(member.getJoinTime());
                     users.stream()
                             .filter(user -> user.getId().equals(member.getUserId()))

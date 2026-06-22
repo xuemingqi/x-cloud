@@ -1,6 +1,6 @@
 package com.x.work.controller;
 
-import com.x.common.response.BaseResult;
+import com.x.framework.common.response.BaseResult;
 import com.x.framework.web.annotation.PassToken;
 import com.x.work.service.WeChatService;
 import io.swagger.v3.oas.annotations.Operation;

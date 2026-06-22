@@ -1,7 +1,7 @@
 package com.x.work.mq.service.impl;
 
-import com.x.common.message.TestMessage;
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.message.TestMessage;
+import com.x.framework.common.utils.JsonUtil;
 import com.x.work.mq.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

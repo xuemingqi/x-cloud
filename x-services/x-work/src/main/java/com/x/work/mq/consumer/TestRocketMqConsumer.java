@@ -1,7 +1,7 @@
 package com.x.work.mq.consumer;
 
-import com.x.common.message.TestMessage;
-import com.x.common.utils.FunUtil;
+import com.x.framework.common.message.TestMessage;
+import com.x.framework.common.utils.FunUtil;
 import com.x.framework.mq.listener.RocketMqBaseListener;
 import com.x.work.mq.service.TestService;
 import lombok.RequiredArgsConstructor;

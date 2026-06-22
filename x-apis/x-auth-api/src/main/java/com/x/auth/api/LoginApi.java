@@ -1,9 +1,9 @@
 package com.x.auth.api;
 
-import com.x.common.config.InternalInterceptor;
-import com.x.common.dto.UserInfo;
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
+import com.x.framework.common.config.InternalInterceptor;
+import com.x.framework.common.dto.UserInfo;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;

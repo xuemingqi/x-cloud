@@ -1,6 +1,6 @@
 package com.x.websocket.cluster;
 
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.utils.JsonUtil;
 import com.x.framework.redis.util.RedisUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

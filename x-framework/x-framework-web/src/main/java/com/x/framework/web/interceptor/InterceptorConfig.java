@@ -1,6 +1,6 @@
 package com.x.framework.web.interceptor;
 
-import com.x.common.auth.AuthClient;
+import com.x.framework.common.auth.AuthClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;

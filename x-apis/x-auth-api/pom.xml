@@ -11,8 +11,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.x.auth</groupId>
-    <artifactId>x-auth-api</artifactId>
+    <groupId>com.x.api.auth</groupId>
+            <artifactId>x-auth-api</artifactId>
     <name>x-auth-api</name>
     <description>x auth api</description>
 
@@ -22,18 +22,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
-        <!-- framework core -->
-        <dependency>
-            <groupId>com.x.framework.core</groupId>
-            <artifactId>x-framework-core</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <!-- common -->
         <dependency>
-            <groupId>com.x.common</groupId>
-            <artifactId>x-common</artifactId>
+            <groupId>com.x.framework.common</groupId>
+            <artifactId>x-framework-common</artifactId>
             <optional>true</optional>
             <version>${project.version}</version>
         </dependency>

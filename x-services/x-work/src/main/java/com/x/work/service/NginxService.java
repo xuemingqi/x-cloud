@@ -1,6 +1,6 @@
 package com.x.work.service;
 
-import com.x.common.response.BaseResult;
+import com.x.framework.common.response.BaseResult;
 import com.x.work.domain.NginxLogDo;
 import com.x.work.dto.ServerMessageDto;
 

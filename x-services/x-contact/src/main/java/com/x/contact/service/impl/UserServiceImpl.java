@@ -2,11 +2,11 @@ package com.x.contact.service.impl;
 
 import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.util.IdUtil;
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
-import com.x.common.utils.EncryptionUtil;
-import com.x.framework.core.exception.XException;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
+import com.x.framework.common.utils.EncryptionUtil;
+import com.x.framework.common.exception.XException;
 import com.x.contact.db.entity.User;
 import com.x.contact.db.service.UserIService;
 import com.x.contact.domain.UserDo;
@@ -40,6 +40,9 @@ public class UserServiceImpl implements UserService {
         }
         UserDo userDo = UserDo.builder().build();
         BeanUtils.copyProperties(user, userDo);
+        if (user.getSex() != null) {
+            userDo.setSex(com.x.contact.enums.Sex.valueOf(user.getSex().name()));
+        }
         return ResultUtil.buildResultSuccess(userDo);
     }
 
@@ -70,6 +73,9 @@ public class UserServiceImpl implements UserService {
 
         User user = User.builder().build();
         BeanUtils.copyProperties(param, user);
+        if (param.getSex() != null) {
+            user.setSex(com.x.contact.db.enums.Sex.valueOf(param.getSex().name()));
+        }
 
         //密码sha256加密
         String salt = IdUtil.simpleUUID();

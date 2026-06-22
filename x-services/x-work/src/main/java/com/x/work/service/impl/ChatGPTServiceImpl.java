@@ -1,7 +1,7 @@
 package com.x.work.service.impl;
 
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
 import com.x.work.common.property.OpenAiProperty;
 import com.x.work.service.ChatGPTService;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.x.framework.redis.annotation;
 
 
-import com.x.common.enums.OperationEnum;
+import com.x.framework.common.enums.OperationEnum;
 
 import java.lang.annotation.*;
 

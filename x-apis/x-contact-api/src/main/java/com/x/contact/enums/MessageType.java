@@ -1,6 +1,5 @@
 package com.x.contact.enums;
 
-import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -48,7 +47,6 @@ public enum MessageType {
      */
     SYSTEM(6, "system");
 
-    @EnumValue
     @JsonValue
     private final int code;
 

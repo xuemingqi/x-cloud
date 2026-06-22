@@ -1,7 +1,7 @@
 package com.x.auth.fallback;
 
 import com.x.auth.api.LoginApi;
-import com.x.common.response.ResultUtil;
+import com.x.framework.common.response.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;

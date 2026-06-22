@@ -39,7 +39,6 @@
     <modules>
         <module>../x-services</module>
         <module>../x-apis</module>
-        <module>../x-common</module>
         <module>../x-framework</module>
     </modules>
 

@@ -1,8 +1,8 @@
 package com.x.framework.web.feign.conf;
 
-import com.x.common.constants.CommonConstant;
-import com.x.common.utils.IdUtil;
-import com.x.common.utils.StringUtil;
+import com.x.framework.common.constants.CommonConstant;
+import com.x.framework.common.utils.IdUtil;
+import com.x.framework.common.utils.StringUtil;
 import feign.RequestInterceptor;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.MDC;

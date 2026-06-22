@@ -1,8 +1,8 @@
 package com.x.work.service.impl;
 
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
-import com.x.common.utils.ListUtil;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
+import com.x.framework.common.utils.ListUtil;
 import com.x.framework.redis.constants.RedisCommonConstant;
 import com.x.work.db.entity.Menu;
 import com.x.work.db.service.MenuIService;

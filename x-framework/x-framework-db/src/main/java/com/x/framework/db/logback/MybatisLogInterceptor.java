@@ -1,7 +1,7 @@
 package com.x.framework.db.logback;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.utils.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

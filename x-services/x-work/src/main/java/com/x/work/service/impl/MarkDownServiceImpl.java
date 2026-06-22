@@ -1,10 +1,10 @@
 package com.x.work.service.impl;
 
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
-import com.x.common.utils.ListUtil;
-import com.x.framework.core.exception.XException;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
+import com.x.framework.common.utils.ListUtil;
+import com.x.framework.common.exception.XException;
 import com.x.framework.redis.constants.RedisCommonConstant;
 import com.x.work.db.entity.File;
 import com.x.work.db.enums.FileTypeEnum;

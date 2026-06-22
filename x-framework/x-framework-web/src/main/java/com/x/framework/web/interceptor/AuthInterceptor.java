@@ -1,12 +1,12 @@
 package com.x.framework.web.interceptor;
 
-import com.x.common.constants.CommonConstant;
-import com.x.common.auth.AuthClient;
-import com.x.common.dto.UserInfo;
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.utils.DateUtil;
-import com.x.common.utils.ServerUtil;
-import com.x.framework.core.exception.XException;
+import com.x.framework.common.constants.CommonConstant;
+import com.x.framework.common.auth.AuthClient;
+import com.x.framework.common.dto.UserInfo;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.utils.DateUtil;
+import com.x.framework.common.utils.ServerUtil;
+import com.x.framework.common.exception.XException;
 import com.x.framework.web.annotation.Internal;
 import com.x.framework.web.annotation.PassToken;
 import jakarta.servlet.http.HttpServletRequest;

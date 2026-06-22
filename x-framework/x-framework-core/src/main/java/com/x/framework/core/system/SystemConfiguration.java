@@ -1,7 +1,7 @@
 package com.x.framework.core.system;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.utils.JsonUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

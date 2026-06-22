@@ -3,7 +3,7 @@ package com.x.contact.db.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.x.contact.enums.MemberType;
+import com.x.contact.db.enums.MemberType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.x.gateway.filter;
 
-import com.x.common.constants.CommonConstant;
+import com.x.framework.common.constants.CommonConstant;
 import org.junit.jupiter.api.Test;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;

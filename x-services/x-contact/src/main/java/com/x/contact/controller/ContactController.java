@@ -1,7 +1,7 @@
 package com.x.contact.controller;
 
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
 import com.x.contact.constants.ValidMsgConstant;
 import com.x.contact.param.request.AddContactReq;
 import io.swagger.v3.oas.annotations.Operation;

@@ -1,6 +1,6 @@
 package com.x.work.mq.service;
 
-import com.x.common.message.TestMessage;
+import com.x.framework.common.message.TestMessage;
 
 /**
  * @author : xuemingqi

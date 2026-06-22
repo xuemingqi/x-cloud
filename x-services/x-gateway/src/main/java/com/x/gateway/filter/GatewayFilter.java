@@ -1,8 +1,8 @@
 package com.x.gateway.filter;
 
-import com.x.common.constants.CommonConstant;
-import com.x.common.utils.IdUtil;
-import com.x.common.utils.ServletUtil;
+import com.x.framework.common.constants.CommonConstant;
+import com.x.framework.common.utils.IdUtil;
+import com.x.framework.common.utils.ServletUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;

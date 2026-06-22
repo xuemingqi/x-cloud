@@ -1,9 +1,9 @@
 package com.x.framework.web.filter;
 
-import com.x.common.constants.CommonConstant;
-import com.x.common.utils.IdUtil;
-import com.x.common.utils.ServletUtil;
-import com.x.common.utils.UserThreadLocalUtil;
+import com.x.framework.common.constants.CommonConstant;
+import com.x.framework.common.utils.IdUtil;
+import com.x.framework.common.utils.ServletUtil;
+import com.x.framework.common.utils.UserThreadLocalUtil;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;

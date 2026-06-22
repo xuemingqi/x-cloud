@@ -25,8 +25,8 @@
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.x.common</groupId>
-            <artifactId>x-common</artifactId>
+            <groupId>com.x.framework.common</groupId>
+            <artifactId>x-framework-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>

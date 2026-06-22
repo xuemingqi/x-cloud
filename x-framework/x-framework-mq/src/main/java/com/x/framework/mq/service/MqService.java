@@ -1,6 +1,6 @@
 package com.x.framework.mq.service;
 
-import com.x.common.message.BaseMessage;
+import com.x.framework.common.message.BaseMessage;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.client.producer.TransactionSendResult;

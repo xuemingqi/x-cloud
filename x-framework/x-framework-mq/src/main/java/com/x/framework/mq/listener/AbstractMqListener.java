@@ -1,7 +1,7 @@
 package com.x.framework.mq.listener;
 
-import com.x.common.message.BaseMessage;
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.message.BaseMessage;
+import com.x.framework.common.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 

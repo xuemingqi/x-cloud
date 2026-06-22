@@ -1,7 +1,7 @@
 package com.x.framework.mq.service.impl;
 
-import com.x.common.message.BaseMessage;
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.message.BaseMessage;
+import com.x.framework.common.utils.JsonUtil;
 import com.x.framework.mq.condition.OnRocketMqOrKafkaCondition;
 import com.x.framework.mq.property.MqProperty;
 import com.x.framework.mq.service.MqService;

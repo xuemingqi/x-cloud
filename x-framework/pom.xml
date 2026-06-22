@@ -19,6 +19,7 @@
     <description>x framework</description>
 
     <modules>
+        <module>x-framework-common</module>
         <module>x-framework-core</module>
         <module>x-framework-web</module>
         <module>x-framework-db</module>

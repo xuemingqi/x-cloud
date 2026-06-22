@@ -1,7 +1,7 @@
 package com.x.framework.redis.conf;
 
 import cn.hutool.core.util.StrUtil;
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.utils.JsonUtil;
 import com.x.framework.redis.constants.RedisCommonConstant;
 import com.x.framework.redis.property.RedissonClusterProperty;
 import com.x.framework.redis.property.RedissonMasterSlaveProperty;

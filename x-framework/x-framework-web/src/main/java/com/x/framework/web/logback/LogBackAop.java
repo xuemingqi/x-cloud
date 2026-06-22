@@ -1,8 +1,8 @@
 package com.x.framework.web.logback;
 
-import com.x.common.response.ResultUtil;
-import com.x.common.utils.JsonUtil;
-import com.x.framework.core.exception.XBaseException;
+import com.x.framework.common.response.ResultUtil;
+import com.x.framework.common.utils.JsonUtil;
+import com.x.framework.common.exception.XBaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.aspectj.lang.ProceedingJoinPoint;

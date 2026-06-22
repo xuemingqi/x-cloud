@@ -1,6 +1,5 @@
 package com.x.contact.enums;
 
-import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +20,6 @@ public enum MemberType {
 
     MEMBER(3, "群成员");
 
-    @EnumValue
     @JsonValue
     private final int code;
 

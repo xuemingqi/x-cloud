@@ -1,7 +1,7 @@
 package com.x.work.controller;
 
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
 import com.x.framework.web.annotation.PassToken;
 import com.x.work.service.TransactionalTestService;
 import lombok.RequiredArgsConstructor;

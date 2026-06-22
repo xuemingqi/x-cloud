@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.enums.SqlLike;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.po.LikeTable;
 import com.baomidou.mybatisplus.generator.query.SQLQuery;
-import com.x.common.utils.DateUtil;
+import com.x.framework.common.utils.DateUtil;
 
 import java.io.File;
 

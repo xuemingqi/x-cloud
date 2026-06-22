@@ -1,8 +1,8 @@
 package com.x.framework.mq.listener;
 
 import cn.hutool.core.util.TypeUtil;
-import com.x.common.message.BaseMessage;
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.message.BaseMessage;
+import com.x.framework.common.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 

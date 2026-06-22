@@ -1,7 +1,7 @@
 package com.x.work.service.impl;
 
-import com.x.common.dto.IpCityDto;
-import com.x.common.utils.IpUtil;
+import com.x.framework.common.dto.IpCityDto;
+import com.x.framework.common.utils.IpUtil;
 import com.x.framework.redis.constants.RedisCommonConstant;
 import com.x.work.service.LocationService;
 import org.springframework.cache.annotation.Cacheable;

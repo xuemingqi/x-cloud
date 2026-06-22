@@ -8,7 +8,7 @@ import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingService;
-import com.x.common.message.TestMessage;
+import com.x.framework.common.message.TestMessage;
 import com.x.framework.mq.service.MqService;
 import com.x.websocket.api.WebSocketApi;
 import com.x.websocket.dto.MessageDto;

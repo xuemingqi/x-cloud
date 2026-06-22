@@ -1,9 +1,9 @@
 package com.x.framework.redis.aspect;
 
-import com.x.common.enums.OperationEnum;
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.response.ResultUtil;
-import com.x.common.utils.ServletUtil;
+import com.x.framework.common.enums.OperationEnum;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.response.ResultUtil;
+import com.x.framework.common.utils.ServletUtil;
 import com.x.framework.redis.annotation.AccessLimit;
 import com.x.framework.redis.util.RedisUtil;
 import jakarta.annotation.Resource;

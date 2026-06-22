@@ -10,8 +10,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.x.ai</groupId>
-    <artifactId>x-ai-api</artifactId>
+    <groupId>com.x.api.ai</groupId>
+            <artifactId>x-ai-api</artifactId>
     <name>x-ai-api</name>
     <description>x ai api</description>
 
@@ -24,8 +24,8 @@
 
         <!-- common -->
         <dependency>
-            <groupId>com.x.common</groupId>
-            <artifactId>x-common</artifactId>
+            <groupId>com.x.framework.common</groupId>
+            <artifactId>x-framework-common</artifactId>
             <optional>true</optional>
             <version>${project.parent.version}</version>
         </dependency>

@@ -11,8 +11,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.x.websocket</groupId>
-    <artifactId>x-websocket-api</artifactId>
+    <groupId>com.x.api.websocket</groupId>
+            <artifactId>x-websocket-api</artifactId>
     <name>x-websocket-api</name>
     <description>x websocket api</description>
 
@@ -25,8 +25,8 @@
 
         <!-- common -->
         <dependency>
-            <groupId>com.x.common</groupId>
-            <artifactId>x-common</artifactId>
+            <groupId>com.x.framework.common</groupId>
+            <artifactId>x-framework-common</artifactId>
             <optional>true</optional>
             <version>${project.parent.version}</version>
         </dependency>

@@ -1,7 +1,7 @@
 package com.x.contact.controller;
 
-import com.x.common.constants.CommonConstant;
-import com.x.common.response.BaseResult;
+import com.x.framework.common.constants.CommonConstant;
+import com.x.framework.common.response.BaseResult;
 import com.x.contact.api.UserApi;
 import com.x.contact.domain.UserDo;
 import com.x.contact.dto.CreateUserDto;

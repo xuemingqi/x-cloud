@@ -20,8 +20,8 @@
     <dependencies>
         <!-- common -->
         <dependency>
-            <groupId>com.x.common</groupId>
-            <artifactId>x-common</artifactId>
+            <groupId>com.x.framework.common</groupId>
+            <artifactId>x-framework-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
@@ -41,7 +41,7 @@
 
         <!-- ai api -->
         <dependency>
-            <groupId>com.x.ai</groupId>
+            <groupId>com.x.api.ai</groupId>
             <artifactId>x-ai-api</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

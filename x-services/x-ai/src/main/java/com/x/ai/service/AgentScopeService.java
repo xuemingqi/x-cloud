@@ -4,7 +4,7 @@ import com.x.ai.domain.AgentCapabilityDo;
 import com.x.ai.domain.AgentResponseDo;
 import com.x.ai.dto.AgentPermissionRequestDto;
 import com.x.ai.dto.AgentRequestDto;
-import com.x.common.response.BaseResult;
+import com.x.framework.common.response.BaseResult;
 import reactor.core.publisher.Flux;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.x.websocket.server;
 
-import com.x.common.utils.JsonUtil;
+import com.x.framework.common.utils.JsonUtil;
 import jakarta.websocket.*;
 import jakarta.websocket.server.PathParam;
 import jakarta.websocket.server.ServerEndpoint;

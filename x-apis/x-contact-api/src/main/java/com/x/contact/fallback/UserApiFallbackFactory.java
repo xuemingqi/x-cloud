@@ -1,7 +1,7 @@
 package com.x.contact.fallback;
 
-import com.x.common.response.BaseResult;
-import com.x.common.response.ResultUtil;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.response.ResultUtil;
 import com.x.contact.api.UserApi;
 import com.x.contact.domain.UserDo;
 import com.x.contact.dto.CreateUserDto;

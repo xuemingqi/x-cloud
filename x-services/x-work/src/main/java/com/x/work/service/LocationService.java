@@ -1,6 +1,6 @@
 package com.x.work.service;
 
-import com.x.common.dto.IpCityDto;
+import com.x.framework.common.dto.IpCityDto;
 
 /**
  * @author : xuemingqi

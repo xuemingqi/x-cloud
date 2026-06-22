@@ -11,8 +11,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.x.content</groupId>
-    <artifactId>x-contact-api</artifactId>
+    <groupId>com.x.api.contact</groupId>
+            <artifactId>x-contact-api</artifactId>
     <name>x-contact-api</name>
     <description>x contact api</description>
 
@@ -22,19 +22,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
-        <!-- framework db -->
-        <dependency>
-            <groupId>com.x.framework</groupId>
-            <artifactId>x-framework-db</artifactId>
-            <version>${project.parent.version}</version>
-            <optional>true</optional>
-        </dependency>
-
         <!-- common -->
         <dependency>
-            <groupId>com.x.common</groupId>
-            <artifactId>x-common</artifactId>
+            <groupId>com.x.framework.common</groupId>
+            <artifactId>x-framework-common</artifactId>
             <optional>true</optional>
             <version>${project.parent.version}</version>
         </dependency>

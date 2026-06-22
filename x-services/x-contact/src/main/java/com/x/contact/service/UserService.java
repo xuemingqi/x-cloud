@@ -1,7 +1,7 @@
 package com.x.contact.service;
 
 
-import com.x.common.response.BaseResult;
+import com.x.framework.common.response.BaseResult;
 import com.x.contact.domain.UserDo;
 import com.x.contact.dto.CreateUserDto;
 import com.x.contact.dto.UserAuthDto;

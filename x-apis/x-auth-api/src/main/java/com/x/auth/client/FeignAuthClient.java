@@ -1,11 +1,11 @@
 package com.x.auth.client;
 
 import com.x.auth.api.LoginApi;
-import com.x.common.auth.AuthClient;
-import com.x.common.dto.UserInfo;
-import com.x.common.enums.ResponseCodeEnum;
-import com.x.common.response.BaseResult;
-import com.x.framework.core.exception.XException;
+import com.x.framework.common.auth.AuthClient;
+import com.x.framework.common.dto.UserInfo;
+import com.x.framework.common.enums.ResponseCodeEnum;
+import com.x.framework.common.response.BaseResult;
+import com.x.framework.common.exception.XException;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;

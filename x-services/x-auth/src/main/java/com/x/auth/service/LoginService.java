@@ -3,8 +3,8 @@ package com.x.auth.service;
 import com.x.auth.domain.VerificationCodeDo;
 import com.x.auth.domain.VerificationImgDo;
 import com.x.auth.dto.VerificationImgDto;
-import com.x.common.dto.UserInfo;
-import com.x.common.response.BaseResult;
+import com.x.framework.common.dto.UserInfo;
+import com.x.framework.common.response.BaseResult;
 
 /**
  * @author : xuemingqi
